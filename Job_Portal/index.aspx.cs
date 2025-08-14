@@ -11,6 +11,38 @@ namespace Job_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Role"] == null || Session["Role"].ToString() != "JobSeeker")
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+
+            if (!IsPostBack)
+            {
+                string role = Session["Role"] != null ? Session["Role"].ToString() : "";
+
+                // Default: Show Public Menu
+                phPublic.Visible = true;
+                phJobSeeker.Visible = false;
+                phRecruiter.Visible = false;
+                phAdmin.Visible = false;
+
+                switch (role)
+                {
+                    case "JobSeeker":
+                        phJobSeeker.Visible = true;
+                        break;
+
+                    case "Recruiter":
+                        phPublic.Visible = false;
+                        phRecruiter.Visible = true;
+                        break;
+
+                    case "Admin":
+                        phPublic.Visible = false;
+                        phAdmin.Visible = true;
+                        break;
+                }
+            }
 
         }
     }

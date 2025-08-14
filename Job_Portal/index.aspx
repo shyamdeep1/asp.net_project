@@ -1,105 +1,130 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Job_Portal.index" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content5" runat="server" contentplaceholderid="ContentPlaceHolder2">
-                <!-- NAVBAR -->
-                <header class="site-navbar mt-3">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <div class="site-logo col-6">
-                                <a href="index.html">JobBoard</a></div>
-                            <nav class="mx-auto site-navigation">
-                                <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li class="has-children"><a href="job-listings.html">Job Listings</a>
-                                        <ul class="dropdown">
-                                            <li><a href="job-single.html">Job Single</a></li>
-                                            <li><a href="post-job.html">Post a Job</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children"><a href="services.html">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="service-single.html">Service Single</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                            <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
-                                            <li><a href="faq.html">Frequently Ask Questions</a></li>
-                                            <li><a href="gallery.html">Gallery</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
-                                    <li class="d-lg-none"><a href="login.html">Log In</a></li>
-                                </ul>
-                            </nav>
-                            <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
-                                <div class="ml-auto">
-                                    <a href="post-job.html" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Post a Job</a> <a href="login.html" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Log In</a>
-                                </div>
-                                <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
-                            </div>
-                        </div>
-                    </div>
+<asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
+    <!-- NAVBAR -->
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- Logo -->
+                <div class="col-6 col-xl-2">
+                    <h1 class="mb-0 site-logo">
+                        <a href="index.aspx" class="mb-0">JobBoard</a>
+                    </h1>
+                </div>
+
+                <!-- Navbar Menu -->
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+
+                            <!-- Public Menu -->
+                            <asp:PlaceHolder ID="phPublic" runat="server" Visible="true">
+                                <li><a href="index.aspx" class="nav-link">Home</a></li>
+                                <li><a href="job_listing.aspx" class="nav-link">Job Listings</a></li>
+                                <li><a href="about.aspx" class="nav-link">About</a></li>
+                                <li><a href="contact.aspx" class="nav-link">Contact</a></li>
+                              <%--  <li><a href="login.aspx" class="nav-link">Login</a></li>
+                                <li><a href="register_jobseeker.aspx" class="nav-link">Register</a></li>--%>
+                            </asp:PlaceHolder>
+
+                            <!-- Job Seeker Menu -->
+                            <asp:PlaceHolder ID="phJobSeeker" runat="server" Visible="false">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="jobSeekerDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Job Seeker
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="jobSeekerDropdown">
+                                        <a class="dropdown-item" href="jobseeker_profile.aspx">My Profile</a>
+                                        <a class="dropdown-item" href="jobseeker_applied_jobs.aspx">Applied Jobs</a>
+                                        <a class="dropdown-item" href="logout.aspx">Logout</a>
+                                    </div>
+                                </li>
+                            </asp:PlaceHolder>
+
+                            <!-- Recruiter Menu -->
+                            <asp:PlaceHolder ID="phRecruiter" runat="server" Visible="false">
+                                <li><a href="post_job.aspx" class="nav-link">Post Job</a></li>
+                                <li><a href="manage_jobs.aspx" class="nav-link">Manage Jobs</a></li>
+                                <li><a href="logout.aspx" class="nav-link">Logout</a></li>
+                            </asp:PlaceHolder>
+
+                            <!-- Admin Menu -->
+                            <asp:PlaceHolder ID="phAdmin" runat="server" Visible="false">
+                                <li><a href="admin_dashboard.aspx" class="nav-link">Dashboard</a></li>
+                                <li><a href="manage_users.aspx" class="nav-link">Manage Users</a></li>
+                                <li><a href="manage_jobs_admin.aspx" class="nav-link">Manage Jobs</a></li>
+                                <li><a href="logout.aspx" class="nav-link">Logout</a></li>
+                            </asp:PlaceHolder>
+
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
     </header>
-                <!-- HOME -->
-                <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
-                    <div class="container">
-                        <div class="row align-items-center justify-content-center">
-                            <div class="col-md-12">
-                                <div class="mb-5 text-center">
-                                    <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.</p>
-                                </div>
-                                <div class="search-jobs-form">
-                                    <div class="row mb-5">
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                            <input type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                            <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Region">
-                                                <option>Anywhere</option>
-                                                <option>San Francisco</option>
-                                                <option>Palo Alto</option>
-                                                <option>New York</option>
-                                                <option>Manhattan</option>
-                                                <option>Ontario</option>
-                                                <option>Toronto</option>
-                                                <option>Kansas</option>
-                                                <option>Mountain View</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                            <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Job Type">
-                                                <option>Part Time</option>
-                                                <option>Full Time</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                            <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search">
-                                                <span class="icon-search icon mr-2"></span>Search Job
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 popular-keywords">
-                                            <h3>Trending Keywords:</h3>
-                                            <ul class="keywords list-unstyled m-0 p-0">
-                                                <li><a href="#" class="">UI Designer</a></li>
-                                                <li><a href="#" class="">Python</a></li>
-                                                <li><a href="#" class="">Developer</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+
+
+    <!-- HOME -->
+    <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-12">
+                    <div class="mb-5 text-center">
+                        <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.
+                        </p>
+                    </div>
+                    <div class="search-jobs-form">
+                        <div class="row mb-5">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                <input type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Region">
+                                    <option>Anywhere</option>
+                                    <option>San Francisco</option>
+                                    <option>Palo Alto</option>
+                                    <option>New York</option>
+                                    <option>Manhattan</option>
+                                    <option>Ontario</option>
+                                    <option>Toronto</option>
+                                    <option>Kansas</option>
+                                    <option>Mountain View</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Job Type">
+                                    <option>Part Time</option>
+                                    <option>Full Time</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search">
+                                    <span class="icon-search icon mr-2"></span>Search Job
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 popular-keywords">
+                                <h3>Trending Keywords:</h3>
+                                <ul class="keywords list-unstyled m-0 p-0">
+                                    <li><a href="#" class="">UI Designer</a></li>
+                                    <li><a href="#" class="">Python</a></li>
+                                    <li><a href="#" class="">Developer</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <a href="#next" class="scroll-button smoothscroll"><span class=" icon-keyboard_arrow_down"></span></a>
+                </div>
+            </div>
+        </div>
+        <a href="#next" class="scroll-button smoothscroll"><span class=" icon-keyboard_arrow_down"></span></a>
     </section>
     <section class="py-5 bg-image overlay-primary fixed overlay" id="next" style="background-image: url('images/hero_1.jpg');">
         <div class="container">
@@ -107,7 +132,8 @@
                 <div class="col-md-7 text-center">
                     <h2 class="section-title mb-2 text-white">JobBoard Site Stats</h2>
                     <p class="lead text-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita unde officiis recusandae sequi excepturi corrupti.</p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita unde officiis recusandae sequi excepturi corrupti.
+                    </p>
                 </div>
             </div>
             <div class="row pb-0 block__19738 section-counter">
@@ -288,7 +314,8 @@
                 <div class="col-md-8">
                     <h2 class="text-white">Looking For A Job?</h2>
                     <p class="mb-0 text-white lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.</p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.
+                    </p>
                 </div>
                 <div class="col-md-3 ml-auto">
                     <a href="#" class="btn btn-warning btn-block btn-lg">Sign Up</a>
@@ -304,7 +331,8 @@
                         <div class="col-md-7">
                             <h2 class="section-title mb-2">Company We've Helped</h2>
                             <p class="lead">
-                                Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste</p>
+                                Porro error reiciendis commodi beatae omnis similique voluptate rerum ipsam fugit mollitia ipsum facilis expedita tempora suscipit iste
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -342,9 +370,11 @@
                     <div class="col-lg-6 align-self-center text-center text-lg-left">
                         <blockquote>
                             <p>
-                                &ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
+                                &ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;
+                            </p>
                             <p>
-                                <cite>&mdash; Corey Woods, @Dribbble</cite></p>
+                                <cite>&mdash; Corey Woods, @Dribbble</cite>
+                            </p>
                         </blockquote>
                     </div>
                     <div class="col-lg-6 align-self-end text-center text-lg-right">
@@ -357,9 +387,11 @@
                     <div class="col-lg-6 align-self-center text-center text-lg-left">
                         <blockquote>
                             <p>
-                                &ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
+                                &ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;
+                            </p>
                             <p>
-                                <cite>&mdash; Chris Peters, @Google</cite></p>
+                                <cite>&mdash; Chris Peters, @Google</cite>
+                            </p>
                         </blockquote>
                     </div>
                     <div class="col-lg-6 align-self-end text-center text-lg-right">
@@ -375,7 +407,8 @@
                 <div class="col-md-6 align-self-center text-center text-md-left mb-5 mb-md-0">
                     <h2 class="text-white">Get The Mobile Apps</h2>
                     <p class="mb-5 lead text-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.</p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci impedit.
+                    </p>
                     <p class="mb-0">
                         <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-apple mr-3"></span>App Store</a> <a href="#" class="btn btn-dark btn-md px-4 border-width-2"><span class="icon-android mr-3"></span>Play Store</a>
                     </p>
@@ -387,7 +420,7 @@
         </div>
     </section>
 </asp:Content>
-<asp:Content ID="Content6" runat="server" contentplaceholderid="ContentPlaceHolder3">
+<asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <footer class="site-footer">
         <a href="#top" class="smoothscroll scroll-top"><span class="icon-keyboard_arrow_up"></span></a>
         <div class="container">
@@ -431,34 +464,34 @@
                 <div class="col-12">
                     <p class="copyright">
                         <small>
-                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                                        All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i>by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    </small>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i>by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </small>
                     </p>
                 </div>
             </div>
         </div>
     </footer>
-        </div>
+    </div>
 
         <!-- SCRIPTS -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/isotope.pkgd.min.js"></script>
-        <script src="js/stickyfill.min.js"></script>
-        <script src="js/jquery.fancybox.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/stickyfill.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
 
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.animateNumber.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
 
-        <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
 
-        <script src="js/custom.js"></script>
-</body>
+    <script src="js/custom.js"></script>
+    </body>
 </html>
 </asp:Content>
 

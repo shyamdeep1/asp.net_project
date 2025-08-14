@@ -7,7 +7,7 @@
     <div class="site-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <h2 class="mb-5 heading-219 text-center">Register as Job Seeker</h2>
 
                     <div class="p-4 p-md-5 border rounded">
@@ -33,56 +33,15 @@
                             <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm Password"></asp:TextBox>
                         </div>
 
-                        <!-- Phone -->
-                        <div class="form-group">
-                            <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" placeholder="Phone Number"></asp:TextBox>
-                        </div>
-
-                        <!-- Date of Birth -->
-                        <div class="form-group">
-                            <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" TextMode="Date" placeholder="Date of Birth"></asp:TextBox>
-                        </div>
-
-                        <!-- Gender -->
-                        <div class="form-group">
-                            <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control">
-                                <asp:ListItem Text="Select Gender" Value="" />
-                                <asp:ListItem Text="Male" Value="Male" />
-                                <asp:ListItem Text="Female" Value="Female" />
-                                <asp:ListItem Text="Other" Value="Other" />
-                            </asp:DropDownList>
-                        </div>
-
-                        <!-- Address -->
-                        <div class="form-group">
-                            <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Address" TextMode="MultiLine" Rows="2"></asp:TextBox>
-                        </div>
-
-                        <!-- Qualification -->
-                        <div class="form-group">
-                            <asp:DropDownList ID="ddlQualification" runat="server" CssClass="form-control">
-                                <asp:ListItem Text="Select Qualification" Value="" />
-                            </asp:DropDownList>
-                        </div>
-
-                        <!-- Skills -->
-                        <div class="form-group">
-                            <asp:TextBox ID="txtSkills" runat="server" CssClass="form-control" placeholder="Skills (comma separated)"></asp:TextBox>
-                        </div>
-
                         <!-- Submit -->
                         <div class="form-group">
                             <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-primary py-2 px-4" OnClick="btnRegister_Click" />
                         </div>
                         <div class="form-group">
-                            <p>
-                                Already registered? 
-        <a href="login.aspx">Login here</a>
-                            </p>
+                            <p>Already registered? <a href="login.aspx">Login here</a></p>
                         </div>
-
-
                     </div>
+
                 </div>
             </div>
         </div>

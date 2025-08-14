@@ -7,24 +7,40 @@
       "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\register_jobseeker.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\register_jobseeker.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|c:\\users\\rajveer meta\\source\\repos\\job_portal\\job_portal\\register_recruiter.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\register_recruiter.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\register_recruiter.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\register_recruiter.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\register_jobseeker.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\register_jobseeker.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\register_jobseeker.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\register_jobseeker.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -33,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\adminlogin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\adminlogin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\recruiter_jobs.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -49,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\admin_qualifications.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\admin_qualifications.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\register_recruiter.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|solutionrelative:job_portal\\register_recruiter.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{935CB2BA-9214-4E16-A950-09A378BD7C16}|Job_Portal\\Job_Portal.csproj|C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\job_portal\\admin_categories.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -140,14 +148,27 @@
               "RelativeDocumentMoniker": "Job_Portal\\.gitignore",
               "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\.gitignore",
               "RelativeToolTip": "Job_Portal\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-11T06:10:35.955Z",
+              "WhenOpened": "2025-08-14T10:24:14.472Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "index.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\index.aspx.cs",
+              "RelativeDocumentMoniker": "Job_Portal\\index.aspx.cs",
+              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\index.aspx.cs",
+              "RelativeToolTip": "Job_Portal\\index.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T11:13:08.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "index.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\index.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\index.aspx",
@@ -155,11 +176,12 @@
               "RelativeToolTip": "Job_Portal\\index.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-08-09T04:24:14.535Z"
+              "WhenOpened": "2025-08-09T04:24:14.535Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "adminlogin.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\adminlogin.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\adminlogin.aspx",
@@ -167,36 +189,38 @@
               "RelativeToolTip": "Job_Portal\\adminlogin.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-08-09T03:58:21.594Z"
+              "WhenOpened": "2025-08-09T03:58:21.594Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\css\\style.css",
               "RelativeDocumentMoniker": "Job_Portal\\css\\style.css",
               "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\css\\style.css",
               "RelativeToolTip": "Job_Portal\\css\\style.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwIUGAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGcGAAAAAAAAAAAQwIYGAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-09T03:52:07.655Z"
+              "WhenOpened": "2025-08-09T03:52:07.655Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\Web.config",
               "RelativeDocumentMoniker": "Job_Portal\\Web.config",
               "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\Web.config",
               "RelativeToolTip": "Job_Portal\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-07-31T15:00:36.786Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "admin_qualifications.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\admin_qualifications.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\admin_qualifications.aspx",
@@ -204,11 +228,12 @@
               "RelativeToolTip": "Job_Portal\\admin_qualifications.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:48:53.51Z"
+              "WhenOpened": "2025-07-31T14:48:53.51Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "admin_skills.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\admin_skills.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\admin_skills.aspx",
@@ -216,11 +241,12 @@
               "RelativeToolTip": "Job_Portal\\admin_skills.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:48:35.726Z"
+              "WhenOpened": "2025-07-31T14:48:35.726Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "admin_categories.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\admin_categories.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\admin_categories.aspx",
@@ -228,11 +254,12 @@
               "RelativeToolTip": "Job_Portal\\admin_categories.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:47:48.888Z"
+              "WhenOpened": "2025-07-31T14:47:48.888Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "admin_jobs.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\admin_jobs.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\admin_jobs.aspx",
@@ -240,11 +267,12 @@
               "RelativeToolTip": "Job_Portal\\admin_jobs.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:47:29.313Z"
+              "WhenOpened": "2025-07-31T14:47:29.313Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "admin_recruiters.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\admin_recruiters.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\admin_recruiters.aspx",
@@ -252,11 +280,12 @@
               "RelativeToolTip": "Job_Portal\\admin_recruiters.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:47:08.659Z"
+              "WhenOpened": "2025-07-31T14:47:08.659Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "admin_jobseekers.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\admin_jobseekers.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\admin_jobseekers.aspx",
@@ -264,11 +293,12 @@
               "RelativeToolTip": "Job_Portal\\admin_jobseekers.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:46:46.487Z"
+              "WhenOpened": "2025-07-31T14:46:46.487Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "admin_dashboard.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\admin_dashboard.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\admin_dashboard.aspx",
@@ -276,11 +306,12 @@
               "RelativeToolTip": "Job_Portal\\admin_dashboard.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:46:30.798Z"
+              "WhenOpened": "2025-07-31T14:46:30.798Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "job_applicants.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\job_applicants.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\job_applicants.aspx",
@@ -288,11 +319,12 @@
               "RelativeToolTip": "Job_Portal\\job_applicants.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:46:08.554Z"
+              "WhenOpened": "2025-07-31T14:46:08.554Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "recruiter_jobs.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\recruiter_jobs.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\recruiter_jobs.aspx",
@@ -300,11 +332,12 @@
               "RelativeToolTip": "Job_Portal\\recruiter_jobs.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:45:44.886Z"
+              "WhenOpened": "2025-07-31T14:45:44.886Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "post_job.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\post_job.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\post_job.aspx",
@@ -312,11 +345,12 @@
               "RelativeToolTip": "Job_Portal\\post_job.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:44:37.021Z"
+              "WhenOpened": "2025-07-31T14:44:37.021Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "saved_jobs.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\saved_jobs.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\saved_jobs.aspx",
@@ -324,11 +358,12 @@
               "RelativeToolTip": "Job_Portal\\saved_jobs.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:44:10.397Z"
+              "WhenOpened": "2025-07-31T14:44:10.397Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "my_applications.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\my_applications.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\my_applications.aspx",
@@ -336,11 +371,12 @@
               "RelativeToolTip": "Job_Portal\\my_applications.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:43:49.851Z"
+              "WhenOpened": "2025-07-31T14:43:49.851Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "jobseeker_profile.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\jobseeker_profile.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\jobseeker_profile.aspx",
@@ -348,23 +384,12 @@
               "RelativeToolTip": "Job_Portal\\jobseeker_profile.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:43:20.723Z"
+              "WhenOpened": "2025-07-31T14:43:20.723Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "register_recruiter.aspx",
-              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_recruiter.aspx",
-              "RelativeDocumentMoniker": "Job_Portal\\register_recruiter.aspx",
-              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_recruiter.aspx",
-              "RelativeToolTip": "Job_Portal\\register_recruiter.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:42:59.316Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "job_details.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\job_details.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\job_details.aspx",
@@ -372,11 +397,12 @@
               "RelativeToolTip": "Job_Portal\\job_details.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:41:32Z"
+              "WhenOpened": "2025-07-31T14:41:32Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "job_listings.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\job_listings.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\job_listings.aspx",
@@ -384,11 +410,12 @@
               "RelativeToolTip": "Job_Portal\\job_listings.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:41:06.36Z"
+              "WhenOpened": "2025-07-31T14:41:06.36Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "contact.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\contact.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\contact.aspx",
@@ -396,11 +423,12 @@
               "RelativeToolTip": "Job_Portal\\contact.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:40:42.767Z"
+              "WhenOpened": "2025-07-31T14:40:42.767Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "about.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\about.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\about.aspx",
@@ -408,11 +436,12 @@
               "RelativeToolTip": "Job_Portal\\about.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:33:30.736Z"
+              "WhenOpened": "2025-07-31T14:33:30.736Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "Site1.Master",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\Site1.Master",
               "RelativeDocumentMoniker": "Job_Portal\\Site1.Master",
@@ -420,31 +449,34 @@
               "RelativeToolTip": "Job_Portal\\Site1.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-30T14:15:12.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "login.aspx",
-              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx",
-              "RelativeDocumentMoniker": "Job_Portal\\login.aspx",
-              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx",
-              "RelativeToolTip": "Job_Portal\\login.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:41:56.923Z"
+              "WhenOpened": "2025-07-30T14:15:12.915Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "login.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx.cs",
-              "RelativeDocumentMoniker": "Job_Portal\\login.aspx.cs",
-              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx.cs",
-              "RelativeToolTip": "Job_Portal\\login.aspx.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAUwA8AAAAIAAAAAAAAAA==",
+              "Title": "register_recruiter.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_recruiter.aspx.cs",
+              "RelativeDocumentMoniker": "Job_Portal\\register_recruiter.aspx.cs",
+              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_recruiter.aspx.cs",
+              "RelativeToolTip": "Job_Portal\\register_recruiter.aspx.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADoAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T04:31:12.69Z"
+              "WhenOpened": "2025-08-14T03:29:32.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "register_recruiter.aspx",
+              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_recruiter.aspx",
+              "RelativeDocumentMoniker": "Job_Portal\\register_recruiter.aspx",
+              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_recruiter.aspx",
+              "RelativeToolTip": "Job_Portal\\register_recruiter.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-07-31T14:42:59.316Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -454,13 +486,14 @@
               "RelativeDocumentMoniker": "Job_Portal\\register_jobseeker.aspx.cs",
               "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_jobseeker.aspx.cs",
               "RelativeToolTip": "Job_Portal\\register_jobseeker.aspx.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAgwEcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAmwEQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T15:14:24.145Z"
+              "WhenOpened": "2025-07-31T15:14:24.145Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "register_jobseeker.aspx",
               "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\register_jobseeker.aspx",
               "RelativeDocumentMoniker": "Job_Portal\\register_jobseeker.aspx",
@@ -468,7 +501,34 @@
               "RelativeToolTip": "Job_Portal\\register_jobseeker.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-31T14:42:40.717Z"
+              "WhenOpened": "2025-07-31T14:42:40.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "login.aspx",
+              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx",
+              "RelativeDocumentMoniker": "Job_Portal\\login.aspx",
+              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx",
+              "RelativeToolTip": "Job_Portal\\login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-08-12T05:36:09.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx.cs",
+              "RelativeDocumentMoniker": "Job_Portal\\login.aspx.cs",
+              "ToolTip": "C:\\Users\\Rajveer Meta\\source\\repos\\Job_Portal\\Job_Portal\\login.aspx.cs",
+              "RelativeToolTip": "Job_Portal\\login.aspx.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T05:41:02.971Z",
+              "EditorCaption": ""
             }
           ]
         }
