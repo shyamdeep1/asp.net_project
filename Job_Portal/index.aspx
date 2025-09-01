@@ -43,14 +43,7 @@
                                         <a class="dropdown-item" href="logout.aspx">Logout</a>
                                     </div>
                                 </li>
-                            </asp:PlaceHolder>
-
-                            <!-- Recruiter Menu -->
-                            <asp:PlaceHolder ID="phRecruiter" runat="server" Visible="false">
-                                <li><a href="post_job.aspx" class="nav-link">Post Job</a></li>
-                                <li><a href="manage_jobs.aspx" class="nav-link">Manage Jobs</a></li>
-                                <li><a href="logout.aspx" class="nav-link">Logout</a></li>
-                            </asp:PlaceHolder>
+                            </asp:PlaceHolder>                           
 
                             <!-- Admin Menu -->
                             <asp:PlaceHolder ID="phAdmin" runat="server" Visible="false">
@@ -75,6 +68,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
                     <div class="mb-5 text-center">
+                        <asp:Label ID="lblWelcome" runat="server" Text="Label"></asp:Label>
                         <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.

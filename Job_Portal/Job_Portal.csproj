@@ -70,13 +70,7 @@
     <Content Include=".gitignore" />
     <Content Include="about.aspx" />
     <Content Include="about.html" />
-    <Content Include="admin_categories.aspx" />
     <Content Include="admin_dashboard.aspx" />
-    <Content Include="admin_jobs.aspx" />
-    <Content Include="admin_jobseekers.aspx" />
-    <Content Include="admin_qualifications.aspx" />
-    <Content Include="admin_recruiters.aspx" />
-    <Content Include="admin_skills.aspx" />
     <Content Include="App_Data\Portal_Database.mdf" />
     <Content Include="App_Data\Portal_Database_log.ldf">
       <DependentUpon>Portal_Database.mdf</DependentUpon>
@@ -85,7 +79,6 @@
     <Content Include="blog.html" />
     <Content Include="contact.aspx" />
     <Content Include="contact.html" />
-    <Content Include="adminlogin.aspx" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap-select.min.css" />
     <Content Include="css\custom-bs.css" />
@@ -152,7 +145,9 @@
     <Content Include="job-listings.html" />
     <Content Include="job-single.html" />
     <Content Include="jobseeker_profile.aspx" />
-    <Content Include="job_applicants.aspx" />
+    <Content Include="recruiter_dashboard.aspx" />
+    <Content Include="recruiter_profile.aspx" />
+    <Content Include="recruiter_view_applicants.aspx" />
     <Content Include="job_details.aspx" />
     <Content Include="job_listings.aspx" />
     <Content Include="js\bootstrap-select.min.js" />
@@ -174,9 +169,9 @@
     <Content Include="portfolio-single.html" />
     <Content Include="portfolio.html" />
     <Content Include="post-job.html" />
-    <Content Include="post_job.aspx" />
+    <Content Include="recruiter_post_job.aspx" />
     <Content Include="readme.txt" />
-    <Content Include="recruiter_jobs.aspx" />
+    <Content Include="recruiter_manage_jobs.aspx" />
     <Content Include="register_jobseeker.aspx" />
     <Content Include="register_recruiter.aspx" />
     <Content Include="saved_jobs.aspx" />
@@ -193,13 +188,6 @@
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin_categories.aspx.cs">
-      <DependentUpon>admin_categories.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_categories.aspx.designer.cs">
-      <DependentUpon>admin_categories.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin_dashboard.aspx.cs">
       <DependentUpon>admin_dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -207,54 +195,12 @@
     <Compile Include="admin_dashboard.aspx.designer.cs">
       <DependentUpon>admin_dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin_jobs.aspx.cs">
-      <DependentUpon>admin_jobs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_jobs.aspx.designer.cs">
-      <DependentUpon>admin_jobs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin_jobseekers.aspx.cs">
-      <DependentUpon>admin_jobseekers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_jobseekers.aspx.designer.cs">
-      <DependentUpon>admin_jobseekers.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin_qualifications.aspx.cs">
-      <DependentUpon>admin_qualifications.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_qualifications.aspx.designer.cs">
-      <DependentUpon>admin_qualifications.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin_recruiters.aspx.cs">
-      <DependentUpon>admin_recruiters.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_recruiters.aspx.designer.cs">
-      <DependentUpon>admin_recruiters.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin_skills.aspx.cs">
-      <DependentUpon>admin_skills.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_skills.aspx.designer.cs">
-      <DependentUpon>admin_skills.aspx</DependentUpon>
-    </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="adminlogin.aspx.cs">
-      <DependentUpon>adminlogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adminlogin.aspx.designer.cs">
-      <DependentUpon>adminlogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -270,12 +216,26 @@
     <Compile Include="jobseeker_profile.aspx.designer.cs">
       <DependentUpon>jobseeker_profile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="job_applicants.aspx.cs">
-      <DependentUpon>job_applicants.aspx</DependentUpon>
+    <Compile Include="recruiter_dashboard.aspx.cs">
+      <DependentUpon>recruiter_dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="job_applicants.aspx.designer.cs">
-      <DependentUpon>job_applicants.aspx</DependentUpon>
+    <Compile Include="recruiter_dashboard.aspx.designer.cs">
+      <DependentUpon>recruiter_dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recruiter_profile.aspx.cs">
+      <DependentUpon>recruiter_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recruiter_profile.aspx.designer.cs">
+      <DependentUpon>recruiter_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recruiter_view_applicants.aspx.cs">
+      <DependentUpon>recruiter_view_applicants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recruiter_view_applicants.aspx.designer.cs">
+      <DependentUpon>recruiter_view_applicants.aspx</DependentUpon>
     </Compile>
     <Compile Include="job_details.aspx.cs">
       <DependentUpon>job_details.aspx</DependentUpon>
@@ -305,20 +265,20 @@
     <Compile Include="my_applications.aspx.designer.cs">
       <DependentUpon>my_applications.aspx</DependentUpon>
     </Compile>
-    <Compile Include="post_job.aspx.cs">
-      <DependentUpon>post_job.aspx</DependentUpon>
+    <Compile Include="recruiter_post_job.aspx.cs">
+      <DependentUpon>recruiter_post_job.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="post_job.aspx.designer.cs">
-      <DependentUpon>post_job.aspx</DependentUpon>
+    <Compile Include="recruiter_post_job.aspx.designer.cs">
+      <DependentUpon>recruiter_post_job.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="recruiter_jobs.aspx.cs">
-      <DependentUpon>recruiter_jobs.aspx</DependentUpon>
+    <Compile Include="recruiter_manage_jobs.aspx.cs">
+      <DependentUpon>recruiter_manage_jobs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="recruiter_jobs.aspx.designer.cs">
-      <DependentUpon>recruiter_jobs.aspx</DependentUpon>
+    <Compile Include="recruiter_manage_jobs.aspx.designer.cs">
+      <DependentUpon>recruiter_manage_jobs.aspx</DependentUpon>
     </Compile>
     <Compile Include="register_jobseeker.aspx.cs">
       <DependentUpon>register_jobseeker.aspx</DependentUpon>
