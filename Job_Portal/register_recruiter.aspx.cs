@@ -13,8 +13,8 @@ namespace Job_Portal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Prevent master page from blocking this page
-            HttpContext.Current.Items["BypassAuth"] = true;
+           
+            
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -71,7 +71,6 @@ namespace Job_Portal
 
                     cmdRecruiter.ExecuteNonQuery();
 
-                    // Commit transaction
                     transaction.Commit();
 
                     lblMessage.CssClass = "text-success";

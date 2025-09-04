@@ -13,7 +13,7 @@ namespace Job_Portal
 
         void getcon()
         {
-            con = new SqlConnection(conn);   // FIXED: use class-level con
+            con = new SqlConnection(conn);   
             con.Open();
         }
 
@@ -21,7 +21,7 @@ namespace Job_Portal
         {
             if (fuCompanyLogo.HasFile)
             {
-                Flnm = "Logo/" + fuCompanyLogo.FileName;
+                Flnm = "~/Logo/" + fuCompanyLogo.FileName;
                 fuCompanyLogo.SaveAs(Server.MapPath(Flnm));
             }
         }
@@ -68,7 +68,7 @@ namespace Job_Portal
                                txtExperience.Text.Trim() + "', '" + ddlJobType.SelectedValue + "', '" + ddlCategory.SelectedValue + "', '" +
                                txtDeadline.Text.Trim() + "', '" + Flnm + "')";
 
-                SqlCommand cmd = new SqlCommand(query, con);  // con is valid now
+                SqlCommand cmd = new SqlCommand(query, con);  
                 cmd.ExecuteNonQuery();
 
                 lblMessage.Text = "Job posted successfully!";
