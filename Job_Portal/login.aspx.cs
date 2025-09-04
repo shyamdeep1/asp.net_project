@@ -58,6 +58,7 @@ namespace Job_Portal
                                 {
                                     // Store session info
                                     Session["UserId"] = reader["UserId"];
+                                   
                                     Session["FullName"] = reader["FullName"];
                                     Session["Role"] = reader["Role"];
 
