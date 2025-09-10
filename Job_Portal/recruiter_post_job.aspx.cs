@@ -59,7 +59,7 @@ namespace Job_Portal
                     return;
                 }
                 fileupld();
-                getcon();  // open connection
+                getcon();  
 
                 string query = "INSERT INTO Jobs " +
                                "(RecruiterID, JobTitle, JobDescription, Location, Salary, SkillsRequired, ExperienceRequired, JobType, Category, Deadline,Company_Logo) " +
