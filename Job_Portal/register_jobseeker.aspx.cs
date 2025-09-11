@@ -35,49 +35,40 @@ namespace Job_Portal
 
             using (SqlConnection con = new SqlConnection(connStr))
             {
-                try
+                con.Open();
+
+                // Check if email exists
+                SqlCommand checkEmail = new SqlCommand(
+                    "SELECT COUNT(*) FROM Users WHERE Email='"+txtEmail.Text+"'", con);
+                int exists = (int)checkEmail.ExecuteScalar();
+
+                if (exists > 0)
                 {
-                    con.Open();
-
-                    // Check if email exists
-                    SqlCommand checkEmail = new SqlCommand(
-                        "SELECT COUNT(*) FROM Users WHERE Email=@Email", con);
-                    checkEmail.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
-                    int exists = (int)checkEmail.ExecuteScalar();
-
-                    if (exists > 0)
-                    {
-                        lblMessage.Text = "Email already registered.";
-                        return;
-                    }
-
-                    // Insert jobseeker
-                    SqlCommand cmd = new SqlCommand(
-                        "INSERT INTO Users (FullName, Email, Password,Role) VALUES (@FullName, @Email, @Password, @Role)", con);
-
-                    cmd.Parameters.AddWithValue("@FullName", txtFullName.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Password", HashPassword(txtPassword.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@Role", "JobSeeker");
-
-                    int rows = cmd.ExecuteNonQuery();
-                    if (rows > 0)
-                    {
-                        lblMessage.CssClass = "text-success";
-                        lblMessage.Text = "Registration successful! You can now login.";
-                        ClearForm();
-                    }
-                    else
-                    {
-                        lblMessage.Text = "Registration failed. Try again.";
-                    }
+                    lblMessage.Text = "Email already registered.";
+                    return;
                 }
-                catch (Exception ex)
+
+                // Insert jobseeker
+                SqlCommand cmd = new SqlCommand(
+                    "INSERT INTO Users (FullName, Email, Password, Role) VALUES ('"+txtFullName.Text+"', '"+txtEmail.Text+"', '"+HashPassword(txtPassword.Text)+"','JobSeeker')", con);
+
+               
+
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
                 {
-                    lblMessage.Text = "Error: " + ex.Message;
+                    lblMessage.CssClass = "text-success";
+                    lblMessage.Text = "Registration successful! You can now login.";
+                    ClearForm();
+                }
+                else
+                {
+                    lblMessage.Text = "Registration failed. Try again.";
                 }
             }
+
         }
+        
 
              private string HashPassword(string password)
         {
@@ -90,7 +81,7 @@ namespace Job_Portal
                 return sb.ToString();
             }
         }
-        
+
 
         private void ClearForm()
         {

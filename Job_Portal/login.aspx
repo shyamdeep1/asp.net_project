@@ -33,12 +33,14 @@
                         <asp:Label ID="lbleml" runat="server" Text="Email"></asp:Label><br />
                         <div class="form-group">
                             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Email" TextMode="Email"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtEmail" runat="server" ErrorMessage="Please Enter Email"></asp:RequiredFieldValidator>
                         </div>
 
                         <!-- Password -->
                         <div class="form-group">
                             <asp:Label ID="lblpass" runat="server" Text="Password"></asp:Label><br />
                             <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtPassword" runat="server" ErrorMessage="Please Enter Password"></asp:RequiredFieldValidator>
                         </div>
 
                         <!-- Submit -->
