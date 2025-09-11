@@ -146,6 +146,7 @@
     <Content Include="job-single.html" />
     <Content Include="jobseeker_profile.aspx" />
     <Content Include="recruiter_dashboard.aspx" />
+    <Content Include="recruiter_manage_jobs.aspx" />
     <Content Include="recruiter_profile.aspx" />
     <Content Include="recruiter_view_applicants.aspx" />
     <Content Include="job_details.aspx" />
@@ -171,7 +172,6 @@
     <Content Include="post-job.html" />
     <Content Include="recruiter_post_job.aspx" />
     <Content Include="readme.txt" />
-    <Content Include="recruiter_manage_jobs.aspx" />
     <Content Include="register_jobseeker.aspx" />
     <Content Include="register_recruiter.aspx" />
     <Content Include="saved_jobs.aspx" />
@@ -223,6 +223,13 @@
     <Compile Include="recruiter_dashboard.aspx.designer.cs">
       <DependentUpon>recruiter_dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="recruiter_manage_jobs.aspx.cs">
+      <DependentUpon>recruiter_manage_jobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recruiter_manage_jobs.aspx.designer.cs">
+      <DependentUpon>recruiter_manage_jobs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="recruiter_profile.aspx.cs">
       <DependentUpon>recruiter_profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,13 +280,6 @@
       <DependentUpon>recruiter_post_job.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="recruiter_manage_jobs.aspx.cs">
-      <DependentUpon>recruiter_manage_jobs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="recruiter_manage_jobs.aspx.designer.cs">
-      <DependentUpon>recruiter_manage_jobs.aspx</DependentUpon>
-    </Compile>
     <Compile Include="register_jobseeker.aspx.cs">
       <DependentUpon>register_jobseeker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -11,16 +11,16 @@ namespace Job_Portal
 {
 
 
-    public partial class recruiter_jobs
+    public partial class recruiter_manage_jobs
     {
 
         /// <summary>
-        /// pnlJobs control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlJobs;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

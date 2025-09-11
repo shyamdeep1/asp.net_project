@@ -134,7 +134,7 @@
 
                         <!-- Submit -->
                         <div class="form-group mt-4">
-                            <asp:Button ID="btnSaveJob" runat="server" CssClass="btn btn-primary btn-lg px-4" Text="Post Job" OnClick="btnSaveJob_Click" />
+                            <asp:Button ID="btnSaveJob"  runat="server" CssClass="btn btn-primary btn-lg px-4" Text="Post Job" OnClick="btnSaveJob_Click" />
                             <asp:Label ID="lblMessage" runat="server" CssClass="text-success ml-3"></asp:Label>
                         </div>
 
