@@ -37,8 +37,7 @@ namespace Job_Portal
             {
                 con.Open();
 
-                // Check if email exists
-                SqlCommand checkEmail = new SqlCommand(
+]                SqlCommand checkEmail = new SqlCommand(
                     "SELECT COUNT(*) FROM Users WHERE Email='"+txtEmail.Text+"'", con);
                 int exists = (int)checkEmail.ExecuteScalar();
 
@@ -48,7 +47,6 @@ namespace Job_Portal
                     return;
                 }
 
-                // Insert jobseeker
                 SqlCommand cmd = new SqlCommand(
                     "INSERT INTO Users (FullName, Email, Password, Role) VALUES ('"+txtFullName.Text+"', '"+txtEmail.Text+"', '"+HashPassword(txtPassword.Text)+"','JobSeeker')", con);
 

@@ -56,7 +56,6 @@ namespace Job_Portal
 
                                 if (storedHash == enteredHash)
                                 {
-                                    // Store session info
                                     Session["UserId"] = reader["UserId"];
                                    
                                     Session["FullName"] = reader["FullName"];
@@ -64,10 +63,8 @@ namespace Job_Portal
 
                                     string role = reader["Role"].ToString().Trim();
 
-                                    // ✅ Close reader before redirect
                                     reader.Close();
 
-                                    // Redirect based on role (case-insensitive)
                                     if (string.Equals(role, "JobSeeker", StringComparison.OrdinalIgnoreCase))
                                     {
                                         Response.Redirect("index.aspx", false);

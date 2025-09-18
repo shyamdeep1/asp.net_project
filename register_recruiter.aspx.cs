@@ -33,10 +33,8 @@ namespace Job_Portal
                 con.Open();
                 transaction = con.BeginTransaction();
 
-                // Check if email exists in Users
                 SqlCommand checkEmail = new SqlCommand(
-                    "SELECT COUNT(*) FROM Users WHERE Email=@Email", con, transaction);
-                checkEmail.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
+                    "SELECT COUNT(*) FROM Users WHERE Email='"+txtEmail+"'", con, transaction);
                 int exists = (int)checkEmail.ExecuteScalar();
 
                 if (exists > 0)
@@ -46,7 +44,6 @@ namespace Job_Portal
                     return;
                 }
 
-                // Insert into Users table
                 SqlCommand cmdUser = new SqlCommand(
                     @"INSERT INTO Users (FullName, Email, Password, Role) 
                           OUTPUT INSERTED.UserID
@@ -56,14 +53,11 @@ namespace Job_Portal
 
                 int newUserId = (int)cmdUser.ExecuteScalar();
 
-                // Insert into Recruiters table
                 SqlCommand cmdRecruiter = new SqlCommand(
                     @"INSERT INTO Recruiters (UserID, CompanyName, CompanyAddress) 
                           VALUES ('"+newUserId+"', '" + txtCompany.Text+"', '"+txtCompanyAddress.Text+"')", con, transaction);
 
-                //cmdRecruiter.Parameters.AddWithValue("@UserID", newUserId);
-                //cmdRecruiter.Parameters.AddWithValue("@CompanyName", txtCompany.Text.Trim());
-                //cmdRecruiter.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
+            
 
                 cmdRecruiter.ExecuteNonQuery();
 
