@@ -1,5 +1,8 @@
-﻿.vs/
+﻿# Local ignores
 bin/
 obj/
-*.user
-*.suo
+temp/
+
+# Remote ignores
+node_modules/
+.env
