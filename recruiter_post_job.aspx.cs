@@ -69,15 +69,7 @@ namespace Job_Portal
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                txtJobTitle.Text = reader["JobTitle"].ToString();
-                txtDescription.Text = reader["JobDescription"].ToString();
-                txtLocation.Text = reader["Location"].ToString();
-                txtSalary.Text = reader["Salary"].ToString();
-                txtSkills.Text = reader["SkillsRequired"].ToString();
-                txtExperience.Text = reader["ExperienceRequired"].ToString();
-                ddlJobType.SelectedValue = reader["JobType"].ToString();
-                ddlCategory.SelectedValue = reader["Category"].ToString();
-
+               
                 // Handle deadline date format
                 if (reader["Deadline"] != DBNull.Value)
                 {
@@ -85,7 +77,6 @@ namespace Job_Portal
                     txtDeadline.Text = deadline.ToString("yyyy-MM-dd");
                 }
 
-                // Store current logo path
                 if (reader["Company_Logo"] != DBNull.Value)
                 {
                     Flnm = reader["Company_Logo"].ToString();
@@ -122,20 +113,10 @@ namespace Job_Portal
 
                 string query = "INSERT INTO Jobs " +
                                "(RecruiterID, JobTitle, JobDescription, Location, Salary, SkillsRequired, ExperienceRequired, JobType, Category, Deadline, Company_Logo) " +
-                               "VALUES (@RecruiterID, @JobTitle, @JobDescription, @Location, @Salary, @Skills, @Experience, @JobType, @Category, @Deadline, @Logo)";
+                               "VALUES ('" + recruiterId + "', '" + txtJobTitle.Text + "', '" + txtDescription.Text + "', '" + txtLocation.Text + "', '" + txtSalary.Text + "', '" + txtSkills.Text + "', '" + txtExperience.Text + "', '" + ddlJobType.SelectedValue + "', '" + ddlCategory.SelectedValue + "', '" + txtDeadline + "', '" + Flnm + "')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@RecruiterID", recruiterId);
-                cmd.Parameters.AddWithValue("@JobTitle", txtJobTitle.Text.Trim());
-                cmd.Parameters.AddWithValue("@JobDescription", txtDescription.Text.Trim());
-                cmd.Parameters.AddWithValue("@Location", txtLocation.Text.Trim());
-                cmd.Parameters.AddWithValue("@Salary", txtSalary.Text.Trim());
-                cmd.Parameters.AddWithValue("@Skills", txtSkills.Text.Trim());
-                cmd.Parameters.AddWithValue("@Experience", txtExperience.Text.Trim());
-                cmd.Parameters.AddWithValue("@JobType", ddlJobType.SelectedValue);
-                cmd.Parameters.AddWithValue("@Category", ddlCategory.SelectedValue);
-                cmd.Parameters.AddWithValue("@Deadline", txtDeadline.Text.Trim());
-                cmd.Parameters.AddWithValue("@Logo", Flnm ?? "");
+
 
                 cmd.ExecuteNonQuery();
 
@@ -145,10 +126,8 @@ namespace Job_Portal
             }
             else if (btnSaveJob.Text == "Update Job")
             {
-                // Update existing job
                 jobId = Convert.ToInt32(ViewState["JobID"]);
 
-                // Handle file upload for update
                 if (fuCompanyLogo.HasFile)
                 {
                     fileupld();
@@ -156,48 +135,31 @@ namespace Job_Portal
 
                 getcon();
                 string query = "UPDATE Jobs SET " +
-                               "JobTitle = @JobTitle, " +
-                               "JobDescription = @JobDescription, " +
-                               "Location = @Location, " +
-                               "Salary = @Salary, " +
-                               "SkillsRequired = @Skills, " +
-                               "ExperienceRequired = @Experience, " +
-                               "JobType = @JobType, " +
-                               "Category = @Category, " +
-                               "Deadline = @Deadline";
+               "JobTitle = '" + txtJobTitle.Text + "', " +
+               "JobDescription = '" + txtDescription.Text + "', " +
+               "Location = '" + txtLocation.Text + "', " +
+               "Salary = '" + txtSalary.Text + "', " +
+               "SkillsRequired = '" + txtSkills.Text + "', " +
+               "ExperienceRequired = '" + txtExperience.Text + "', " +
+               "JobType = '" + ddlJobType.SelectedValue + "', " +
+               "Category = '" + ddlCategory.SelectedValue + "', " +
+               "Deadline = '" + txtDeadline.Text + "'";
 
-                // Only update logo if new file was uploaded
                 if (fuCompanyLogo.HasFile)
                 {
-                    query += ", Company_Logo = @Logo";
+                    query += ", Company_Logo = '" + Flnm + "'";
                 }
 
-                query += " WHERE JobID = @JobID";
+                query += " WHERE JobID = '" + jobId + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@JobTitle", txtJobTitle.Text.Trim());
-                cmd.Parameters.AddWithValue("@JobDescription", txtDescription.Text.Trim());
-                cmd.Parameters.AddWithValue("@Location", txtLocation.Text.Trim());
-                cmd.Parameters.AddWithValue("@Salary", txtSalary.Text.Trim());
-                cmd.Parameters.AddWithValue("@Skills", txtSkills.Text.Trim());
-                cmd.Parameters.AddWithValue("@Experience", txtExperience.Text.Trim());
-                cmd.Parameters.AddWithValue("@JobType", ddlJobType.SelectedValue);
-                cmd.Parameters.AddWithValue("@Category", ddlCategory.SelectedValue);
-                cmd.Parameters.AddWithValue("@Deadline", txtDeadline.Text.Trim());
-                cmd.Parameters.AddWithValue("@JobID", jobId);
-
-                if (fuCompanyLogo.HasFile)
-                {
-                    cmd.Parameters.AddWithValue("@Logo", Flnm);
-                }
-
                 cmd.ExecuteNonQuery();
 
                 lblMessage.Text = "Job updated successfully!";
                 con.Close();
 
-                // Redirect back to manage jobs page after successful update
                 Response.Redirect("recruiter_manage_jobs.aspx");
+
             }
         }
 
