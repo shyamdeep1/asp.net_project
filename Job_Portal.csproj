@@ -145,6 +145,7 @@
     <Content Include="job-listings.html" />
     <Content Include="job-single.html" />
     <Content Include="jobseeker_profile.aspx" />
+    <Content Include="myjobs.aspx" />
     <Content Include="recruiter_dashboard.aspx" />
     <Content Include="recruiter_manage_jobs.aspx" />
     <Content Include="recruiter_profile.aspx" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="jobseeker_profile.aspx.designer.cs">
       <DependentUpon>jobseeker_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myjobs.aspx.cs">
+      <DependentUpon>myjobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myjobs.aspx.designer.cs">
+      <DependentUpon>myjobs.aspx</DependentUpon>
     </Compile>
     <Compile Include="recruiter_dashboard.aspx.cs">
       <DependentUpon>recruiter_dashboard.aspx</DependentUpon>
