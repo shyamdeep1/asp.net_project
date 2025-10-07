@@ -64,7 +64,7 @@ namespace Job_Portal
 
                                     string role = reader["Role"].ToString().Trim();
 
-                                    // ✅ Close reader before redirect
+                                    //  Close reader before redirect
                                     reader.Close();
 
                                     // Redirect based on role (case-insensitive)

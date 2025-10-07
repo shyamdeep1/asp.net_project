@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Job_Portal
 {
@@ -34,8 +37,89 @@ namespace Job_Portal
 
                     
                 }
+                BindJobs();
             }
 
+        }
+
+        private void BindJobs(string searchTitle = "", string searchLocation = "", string searchJobType = "")
+        {
+            string cs = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                string query = "SELECT TOP 10 JobID, Location, Salary, SkillsRequired, ExperienceRequired, JobType, Category, Deadline, Status, Company_Logo FROM Jobs WHERE 1=1";
+                
+                if (!string.IsNullOrEmpty(searchTitle))
+                {
+                    query += " AND Category LIKE @SearchTitle";
+                }
+                
+                if (!string.IsNullOrEmpty(searchLocation))
+                {
+                    query += " AND Location LIKE @SearchLocation";
+                }
+                
+                if (!string.IsNullOrEmpty(searchJobType))
+                {
+                    query += " AND JobType = @SearchJobType";
+                }
+                
+                query += " ORDER BY JobID DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    if (!string.IsNullOrEmpty(searchTitle))
+                    {
+                        cmd.Parameters.AddWithValue("@SearchTitle", "%" + searchTitle + "%");
+                    }
+                    
+                    if (!string.IsNullOrEmpty(searchLocation))
+                    {
+                        cmd.Parameters.AddWithValue("@SearchLocation", "%" + searchLocation + "%");
+                    }
+                    
+                    if (!string.IsNullOrEmpty(searchJobType))
+                    {
+                        cmd.Parameters.AddWithValue("@SearchJobType", searchJobType);
+                    }
+
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlJobs.DataSource = dt;
+                        dlJobs.DataBind();
+                        dlJobs.Visible = true;
+                        pnlNoJobs.Visible = false;
+                    }
+                    else
+                    {
+                        dlJobs.Visible = false;
+                        pnlNoJobs.Visible = true;
+                    }
+                }
+            }
+        }
+
+        protected void dlJobs_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "ViewDetails")
+            {
+                string jobId = e.CommandArgument.ToString();
+                Response.Redirect("job_details.aspx?JobID=" + jobId);
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTitle = TextBox2.Text.Trim();
+            string searchLocation = TextBox1.Text.Trim();
+            string searchJobType = ddlJobType.SelectedValue;
+            
+            BindJobs(searchTitle, searchLocation, searchJobType);
         }
     }
 }
