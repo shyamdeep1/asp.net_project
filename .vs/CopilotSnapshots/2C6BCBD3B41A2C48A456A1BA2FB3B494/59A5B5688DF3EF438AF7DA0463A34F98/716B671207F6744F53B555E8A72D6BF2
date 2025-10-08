@@ -1,0 +1,90 @@
+﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
+using System.Web;
+using System.Data;
+
+namespace Job_Portal
+{
+    public partial class register_recruiter : System.Web.UI.Page
+    {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in bytes)
+                    sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                lblMessage.Text = "Passwords do not match.";
+                return;
+            }
+
+            getcon();
+
+            // Check if email exists in Users
+            cmd = new SqlCommand("SELECT COUNT(*) FROM Users WHERE Email='" + txtEmail.Text.Trim() + "'", con);
+            int exists = (int)cmd.ExecuteScalar();
+
+            if (exists > 0)
+            {
+                lblMessage.Text = "Email already registered.";
+                con.Close();
+                return;
+            }
+
+            // Insert into Users table
+            cmd = new SqlCommand("INSERT INTO Users (FullName, Email, Password, Role) VALUES ('" + txtFullName.Text.Trim() + "', '" + txtEmail.Text.Trim() + "', '" + HashPassword(txtPassword.Text.Trim()) + "', 'Recruiter')", con);
+            cmd.ExecuteNonQuery();
+
+            // Get the newly inserted UserID
+            cmd = new SqlCommand("SELECT UserID FROM Users WHERE Email='" + txtEmail.Text.Trim() + "'", con);
+            int newUserId = (int)cmd.ExecuteScalar();
+
+            // Insert into Recruiters table
+            cmd = new SqlCommand("INSERT INTO Recruiters (UserID, CompanyName, CompanyAddress) VALUES ('" + newUserId + "', '" + txtCompany.Text.Trim() + "', '" + txtCompanyAddress.Text.Trim() + "')", con);
+            cmd.ExecuteNonQuery();
+
+            lblMessage.CssClass = "text-success";
+            lblMessage.Text = "Registration successful! You can now login.";
+            ClearForm();
+            
+            con.Close();
+        }
+
+        private void ClearForm()
+        {
+            txtFullName.Text = "";
+            txtCompany.Text = "";
+            txtCompanyAddress.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+            txtConfirmPassword.Text = "";
+        }
+    }
+}

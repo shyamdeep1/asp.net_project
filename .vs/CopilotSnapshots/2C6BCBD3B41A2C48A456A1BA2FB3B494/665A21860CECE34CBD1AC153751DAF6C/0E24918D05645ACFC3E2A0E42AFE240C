@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Job_Portal
+{
+    public partial class jobseeker_profile : System.Web.UI.Page
+    {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Session["UserID"] == null || Session["Role"].ToString() != "JobSeeker")
+                {
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    LoadProfileData();
+                }
+            }
+        }
+
+        private void LoadProfileData()
+        {
+            try
+            {
+                int userId = Convert.ToInt32(Session["UserID"]);
+                
+                getcon();
+                cmd = new SqlCommand("SELECT * FROM Users WHERE UserID = @UserID", con);
+                cmd.Parameters.AddWithValue("@UserID", userId);
+                
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    // Load user profile data
+                    // Example: txtFullName.Text = reader["FullName"].ToString();
+                    // txtEmail.Text = reader["Email"].ToString();
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                // Handle error
+                if (con != null && con.State == ConnectionState.Open)
+                    con.Close();
+            }
+        }
+    }
+}

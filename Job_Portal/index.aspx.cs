@@ -12,96 +12,84 @@ namespace Job_Portal
 {
     public partial class index : System.Web.UI.Page
     {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Role"] == null)
             {
                 Response.Redirect("~/Login.aspx");
             }
+            
             lblWelcome.Text = "Welcome " + Session["FullName"] + " (" + Session["Role"] + ")";
-
+            
             if (!IsPostBack)
             {
                 string role = Session["Role"] != null ? Session["Role"].ToString() : "";
 
-                // Default: Show Public Menu
                 phPublic.Visible = true;
                 phJobSeeker.Visible = false;
-               
+                phAdmin.Visible = false;
 
                 switch (role)
                 {
                     case "JobSeeker":
+                        phPublic.Visible = false;
                         phJobSeeker.Visible = true;
                         break;
-
-                    
+                    case "Admin":
+                        phPublic.Visible = false;
+                        phAdmin.Visible = true;
+                        break;
                 }
                 BindJobs();
             }
-
         }
 
         private void BindJobs(string searchTitle = "", string searchLocation = "", string searchJobType = "")
         {
-            string cs = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(cs))
+            getcon();
+            string query = "SELECT*  FROM Jobs";
+            
+            if (!string.IsNullOrEmpty(searchTitle))
             {
-                string query = "SELECT TOP 10 JobID, Location, Salary, SkillsRequired, ExperienceRequired, JobType, Category, Deadline, Status, Company_Logo FROM Jobs WHERE 1=1";
-                
-                if (!string.IsNullOrEmpty(searchTitle))
-                {
-                    query += " AND Category LIKE @SearchTitle";
-                }
-                
-                if (!string.IsNullOrEmpty(searchLocation))
-                {
-                    query += " AND Location LIKE @SearchLocation";
-                }
-                
-                if (!string.IsNullOrEmpty(searchJobType))
-                {
-                    query += " AND JobType = @SearchJobType";
-                }
-                
-                query += " ORDER BY JobID DESC";
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    if (!string.IsNullOrEmpty(searchTitle))
-                    {
-                        cmd.Parameters.AddWithValue("@SearchTitle", "%" + searchTitle + "%");
-                    }
-                    
-                    if (!string.IsNullOrEmpty(searchLocation))
-                    {
-                        cmd.Parameters.AddWithValue("@SearchLocation", "%" + searchLocation + "%");
-                    }
-                    
-                    if (!string.IsNullOrEmpty(searchJobType))
-                    {
-                        cmd.Parameters.AddWithValue("@SearchJobType", searchJobType);
-                    }
-
-                    con.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    
-                    if (dt.Rows.Count > 0)
-                    {
-                        dlJobs.DataSource = dt;
-                        dlJobs.DataBind();
-                        dlJobs.Visible = true;
-                        pnlNoJobs.Visible = false;
-                    }
-                    else
-                    {
-                        dlJobs.Visible = false;
-                        pnlNoJobs.Visible = true;
-                    }
-                }
+                query += " AND Category LIKE '" + searchTitle + "'";
             }
+            
+            if (!string.IsNullOrEmpty(searchLocation))
+            {
+                query += " AND Location LIKE '" + searchLocation + "'";
+            }
+            
+            if (!string.IsNullOrEmpty(searchJobType))
+            {
+                query += " AND JobType = '" + searchJobType + "'";
+            }
+            
+            query += " ORDER BY JobID DESC";
+
+            cmd = new SqlCommand(query, con);
+            da = new SqlDataAdapter(cmd);
+            DataSet ds= new DataSet();
+            da.Fill(ds);
+            
+           
+                dlJobs.DataSource = ds;
+                dlJobs.DataBind();
+                dlJobs.Visible = true;
+                pnlNoJobs.Visible = false;
+           
+            con.Close();
         }
 
         protected void dlJobs_ItemCommand(object source, DataListCommandEventArgs e)

@@ -1,0 +1,50 @@
+﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.UI;
+
+namespace Job_Portal
+{
+    public partial class recruiter_dashboard : System.Web.UI.Page
+    {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Session["UserId"] == null || Session["Role"].ToString() != "Recruiter")
+                {
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    LoadDashboardData();
+                }
+            }
+        }
+
+        private void LoadDashboardData()
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+
+            getcon();
+            string query = "SELECT COUNT(*) as TotalJobs FROM Jobs j INNER JOIN Recruiters r ON j.RecruiterID = r.RecruiterID WHERE r.UserID = '" + userId + "'";
+
+            cmd = new SqlCommand(query, con);
+
+            con.Close();
+        }
+    }
+}

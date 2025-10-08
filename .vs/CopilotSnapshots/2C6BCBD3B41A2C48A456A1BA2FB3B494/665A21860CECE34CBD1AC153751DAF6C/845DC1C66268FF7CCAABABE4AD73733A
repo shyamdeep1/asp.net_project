@@ -1,0 +1,119 @@
+﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
+using System.Web;
+using System.Data;
+
+namespace Job_Portal
+{
+    public partial class register_recruiter : System.Web.UI.Page
+    {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlTransaction transaction;
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in bytes)
+                    sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                lblMessage.Text = "Passwords do not match.";
+                return;
+            }
+
+            try
+            {
+                getcon();
+                transaction = con.BeginTransaction();
+
+                // Check if email exists in Users
+                cmd = new SqlCommand("SELECT COUNT(*) FROM Users WHERE Email=@Email", con, transaction);
+                cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
+                int exists = (int)cmd.ExecuteScalar();
+
+                if (exists > 0)
+                {
+                    lblMessage.Text = "Email already registered.";
+                    transaction.Rollback();
+                    con.Close();
+                    return;
+                }
+
+                // Insert into Users table
+                cmd = new SqlCommand(@"INSERT INTO Users (FullName, Email, Password, Role) 
+                      OUTPUT INSERTED.UserID
+                      VALUES (@FullName, @Email, @Password, @Role)", con, transaction);
+
+                cmd.Parameters.AddWithValue("@FullName", txtFullName.Text.Trim());
+                cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
+                cmd.Parameters.AddWithValue("@Password", HashPassword(txtPassword.Text.Trim()));
+                cmd.Parameters.AddWithValue("@Role", "Recruiter");
+
+                int newUserId = (int)cmd.ExecuteScalar();
+
+                // Insert into Recruiters table
+                cmd = new SqlCommand(@"INSERT INTO Recruiters (UserID, CompanyName, CompanyAddress) 
+                      VALUES (@UserID, @CompanyName, @CompanyAddress)", con, transaction);
+
+                cmd.Parameters.AddWithValue("@UserID", newUserId);
+                cmd.Parameters.AddWithValue("@CompanyName", txtCompany.Text.Trim());
+                cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
+
+                cmd.ExecuteNonQuery();
+
+                transaction.Commit();
+
+                lblMessage.CssClass = "text-success";
+                lblMessage.Text = "Registration successful! You can now login.";
+                ClearForm();
+                
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                    transaction.Rollback();
+
+                lblMessage.Text = "Error: " + ex.Message;
+                
+                if (con != null && con.State == ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+        private void ClearForm()
+        {
+            txtFullName.Text = "";
+            txtCompany.Text = "";
+            txtCompanyAddress.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+            txtConfirmPassword.Text = "";
+        }
+    }
+}

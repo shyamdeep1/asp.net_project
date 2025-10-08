@@ -1,0 +1,47 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Web.UI.WebControls;
+
+namespace Job_Portal
+{
+    public partial class job_details : System.Web.UI.Page
+    {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["JobID"] != null)
+                {
+                    LoadJobDetails(Request.QueryString["JobID"]);
+                }
+            }
+        }
+
+        private void LoadJobDetails(string jobId)
+        {
+            getcon();
+            cmd = new SqlCommand("SELECT JobID, Location, Salary, SkillsRequired, ExperienceRequired, JobType, Category, Deadline, [PostedDate], Status, Company_Logo FROM Jobs WHERE JobID='" + jobId + "'", con);
+            
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                
+            }
+            
+            dr.Close();
+            con.Close();
+        }
+    }
+}}
