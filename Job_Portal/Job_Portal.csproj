@@ -69,16 +69,12 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="about.aspx" />
-    <Content Include="about.html" />
     <Content Include="admin_dashboard.aspx" />
     <Content Include="App_Data\Portal_Database.mdf" />
     <Content Include="App_Data\Portal_Database_log.ldf">
       <DependentUpon>Portal_Database.mdf</DependentUpon>
     </Content>
-    <Content Include="blog-single.html" />
-    <Content Include="blog.html" />
     <Content Include="contact.aspx" />
-    <Content Include="contact.html" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap-select.min.css" />
     <Content Include="css\custom-bs.css" />
@@ -86,7 +82,6 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\quill.snow.css" />
     <Content Include="css\style.css" />
-    <Content Include="faq.html" />
     <Content Include="fonts\icomoon\demo-files\demo.css" />
     <Content Include="fonts\icomoon\demo-files\demo.js" />
     <Content Include="fonts\icomoon\demo.html" />
@@ -99,7 +94,6 @@
     <Content Include="fonts\line-icons\fonts\icomoon.svg" />
     <Content Include="fonts\line-icons\Read Me.txt" />
     <Content Include="fonts\line-icons\style.css" />
-    <Content Include="gallery.html" />
     <Content Include="images\apps.png" />
     <Content Include="images\hero_1.jpg" />
     <Content Include="images\img_1.jpg" />
@@ -141,10 +135,8 @@
     <Content Include="images\sq_img_8.jpg" />
     <Content Include="images\sq_img_9.jpg" />
     <Content Include="index.aspx" />
-    <Content Include="index.html" />
-    <Content Include="job-listings.html" />
-    <Content Include="job-single.html" />
     <Content Include="jobseeker_profile.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="recruiter_dashboard.aspx" />
     <Content Include="recruiter_manage_jobs.aspx" />
     <Content Include="recruiter_profile.aspx" />
@@ -164,19 +156,12 @@
     <Content Include="js\quill.min.js" />
     <Content Include="js\stickyfill.min.js" />
     <Content Include="login.aspx" />
-    <Content Include="login.html" />
-    <Content Include="main.html" />
     <Content Include="my_applications.aspx" />
-    <Content Include="portfolio-single.html" />
-    <Content Include="portfolio.html" />
-    <Content Include="post-job.html" />
     <Content Include="recruiter_post_job.aspx" />
     <Content Include="readme.txt" />
     <Content Include="register_jobseeker.aspx" />
     <Content Include="register_recruiter.aspx" />
     <Content Include="saved_jobs.aspx" />
-    <Content Include="service-single.html" />
-    <Content Include="services.html" />
     <Content Include="testimonials.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -215,6 +200,10 @@
     </Compile>
     <Compile Include="jobseeker_profile.aspx.designer.cs">
       <DependentUpon>jobseeker_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="recruiter_dashboard.aspx.cs">
       <DependentUpon>recruiter_dashboard.aspx</DependentUpon>
