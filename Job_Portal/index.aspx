@@ -24,7 +24,7 @@
                             <!-- Public Menu -->
                             <asp:PlaceHolder ID="phPublic" runat="server" Visible="true">
                                 <li><a href="index.aspx" class="nav-link">Home</a></li>
-                                <li><a href="job_listing.aspx" class="nav-link">Job Listings</a></li>
+                                <li><a href="job_listings.aspx" class="nav-link">Job Listings</a></li>
                                 <li><a href="about.aspx" class="nav-link">About</a></li>
                                 <li><a href="contact.aspx" class="nav-link">Contact</a></li>
                               <%--  <li><a href="login.aspx" class="nav-link">Login</a></li>
@@ -262,9 +262,8 @@
                             <a href="#" class="active" style="padding: 10px 15px;">1</a> 
                             <a href="#" style="padding: 10px 15px;">2</a> 
                             <a href="#" style="padding: 10px 15px;">3</a> 
-                            <a href="#" style="padding: 10px 15px;">4</a>
+                            <a href="#" class="next" style="padding: 10px 20px; font-weight: 600;">Next</a>
                         </div>
-                        <a href="#" class="next" style="padding: 10px 20px; font-weight: 600;">Next</a>
                     </div>
                 </div>
             </div>

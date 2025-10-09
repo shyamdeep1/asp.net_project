@@ -16,7 +16,6 @@ namespace Job_Portal
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter da;
-        
 
         void getcon()
         {
@@ -26,16 +25,17 @@ namespace Job_Portal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Role"] == null)
+            if (Session["Role"] == null || Session["FullName"] == null)
             {
-                Response.Redirect("~/Login.aspx");
+                Response.Redirect("login.aspx");
+                return;
             }
             
-            lblWelcome.Text = "Welcome " + Session["FullName"] + " (" + Session["Role"] + ")";
+            lblWelcome.Text = "Welcome " + Session["FullName"].ToString() + " (" + Session["Role"].ToString() + ")";
             
             if (!IsPostBack)
             {
-                string role = Session["Role"] != null ? Session["Role"].ToString() : "";
+                string role = Session["Role"].ToString();
 
                 phPublic.Visible = true;
                 phJobSeeker.Visible = false;
@@ -44,7 +44,7 @@ namespace Job_Portal
                 switch (role)
                 {
                     case "JobSeeker":
-                        phPublic.Visible = false;
+                        phPublic.Visible = true;
                         phJobSeeker.Visible = true;
                         break;
                     case "Admin":
@@ -59,16 +59,17 @@ namespace Job_Portal
         private void BindJobs(string searchTitle = "", string searchLocation = "", string searchJobType = "")
         {
             getcon();
-            string query = "SELECT*  FROM Jobs";
+            
+            string query = "SELECT * FROM Jobs WHERE 1=1";
             
             if (!string.IsNullOrEmpty(searchTitle))
             {
-                query += " AND Category LIKE '" + searchTitle + "'";
+                query += " AND Category LIKE '%" + searchTitle + "%'";
             }
             
             if (!string.IsNullOrEmpty(searchLocation))
             {
-                query += " AND Location LIKE '" + searchLocation + "'";
+                query += " AND Location LIKE '%" + searchLocation + "%'";
             }
             
             if (!string.IsNullOrEmpty(searchJobType))
@@ -80,15 +81,22 @@ namespace Job_Portal
 
             cmd = new SqlCommand(query, con);
             da = new SqlDataAdapter(cmd);
-            DataSet ds= new DataSet();
+            DataSet ds = new DataSet();
             da.Fill(ds);
             
-           
+            if (ds.Tables[0].Rows.Count > 0)
+            {
                 dlJobs.DataSource = ds;
                 dlJobs.DataBind();
                 dlJobs.Visible = true;
                 pnlNoJobs.Visible = false;
-           
+            }
+            else
+            {
+                dlJobs.Visible = false;
+                pnlNoJobs.Visible = true;
+            }
+            
             con.Close();
         }
 

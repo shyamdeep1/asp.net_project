@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Job_Portal
+{
+    public partial class job_applicants : System.Web.UI.Page
+    {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Session["UserID"] == null || Session["Role"].ToString() != "Recruiter")
+                {
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    LoadApplicants();
+                }
+            }
+        }
+
+        private void LoadApplicants()
+        {
+            int userId = Convert.ToInt32(Session["UserID"]);
+            
+            getcon();
+            string query = "SELECT ja.ApplicationID, ja.FullName, ja.Email, ja.Phone, j.JobTitle, ja.ApplicationDate, ja.Status, ja.Resume FROM JobApplications ja INNER JOIN Jobs j ON ja.JobID = j.JobID INNER JOIN Recruiters r ON j.RecruiterID = r.RecruiterID WHERE r.UserID = '" + userId + "' ORDER BY ja.ApplicationDate DESC";
+            
+            da = new SqlDataAdapter(query, con);
+            ds = new DataSet();
+            da.Fill(ds);
+            
+            con.Close();
+        }
+    }
+}}

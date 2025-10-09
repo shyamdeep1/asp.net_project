@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Job_Portal
+{
+    public partial class saved_jobs : System.Web.UI.Page
+    {
+        String s = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataTable dt;
+
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["UserID"] == null || Session["Role"].ToString() != "JobSeeker")
+            {
+                Response.Redirect("login.aspx");
+            }
+            if (!IsPostBack)
+            {
+                LoadSavedJobs();
+            }
+        }
+
+        private void LoadSavedJobs()
+        {
+            int userId = Convert.ToInt32(Session["UserID"]);
+            
+            getcon();
+            string query = "SELECT s.SavedJobID, j.JobID, j.JobTitle, j.Location, j.Salary, j.Category, j.JobType, j.Company_Logo FROM SavedJobs s INNER JOIN Jobs j ON s.JobID = j.JobID WHERE s.JobSeekerID = '" + userId + "' ORDER BY s.SavedDate DESC";
+            
+            cmd = new SqlCommand(query, con);
+            da = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            da.Fill(dt);
+            
+            con.Close();
+        }
+    }
+}

@@ -82,6 +82,8 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\quill.snow.css" />
     <Content Include="css\style.css" />
+    <Content Include="Database_Scripts\Complete_Database_Setup.sql" />
+    <Content Include="Database_Scripts\Create_Application_Tables.sql" />
     <Content Include="fonts\icomoon\demo-files\demo.css" />
     <Content Include="fonts\icomoon\demo-files\demo.js" />
     <Content Include="fonts\icomoon\demo.html" />
@@ -94,6 +96,7 @@
     <Content Include="fonts\line-icons\fonts\icomoon.svg" />
     <Content Include="fonts\line-icons\Read Me.txt" />
     <Content Include="fonts\line-icons\style.css" />
+    <Content Include="home.aspx" />
     <Content Include="images\apps.png" />
     <Content Include="images\hero_1.jpg" />
     <Content Include="images\img_1.jpg" />
@@ -186,6 +189,10 @@
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -417,7 +424,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Documentation\" />
     <Folder Include="Logo\" />
+    <Folder Include="Resumes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
