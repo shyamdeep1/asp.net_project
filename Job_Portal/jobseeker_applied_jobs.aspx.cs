@@ -131,7 +131,7 @@ namespace Job_Portal
             else if (e.CommandName == "ViewApplication")
             {
                 string applicationId = e.CommandArgument.ToString();
-                Response.Redirect("application_details.aspx?ApplicationID=" + applicationId);
+                Response.Redirect("DownloadApplication.aspx?AppId=" + applicationId);
             }
         }
 

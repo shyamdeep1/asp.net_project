@@ -59,7 +59,7 @@
                                 </p>
                             </div>
                             <div class="col-md-4 text-md-right mt-3 mt-md-0">
-                                <asp:Label ID="lblUserName" runat="server" CssClass="badge badge-primary" style="font-size: 1rem; padding: 10px 20px;"></asp:Label>
+                                <asp:Label ID="lblUserName" runat="server" CssClass="badge badge-primary" Style="font-size: 1rem; padding: 10px 20px;"></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -70,11 +70,11 @@
                 <div class="col-md-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <asp:Label ID="lblResultsCount" runat="server" CssClass="h5" style="color: #2c3e50; font-weight: 600;"></asp:Label>
+                            <asp:Label ID="lblResultsCount" runat="server" CssClass="h5" Style="color: #2c3e50; font-weight: 600;"></asp:Label>
                         </div>
                         <div>
                             <asp:DropDownList ID="ddlFilterStatus" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFilterStatus_SelectedIndexChanged"
-                                CssClass="form-control" style="min-width: 200px;">
+                                CssClass="form-control" Style="min-width: 200px;">
                                 <asp:ListItem Value="" Selected="True">All Applications</asp:ListItem>
                                 <asp:ListItem Value="Pending">Pending</asp:ListItem>
                                 <asp:ListItem Value="Reviewed">Reviewed</asp:ListItem>
@@ -89,16 +89,16 @@
 
             <asp:DataList ID="dlAppliedJobs" runat="server" RepeatDirection="Vertical" RepeatColumns="1" CssClass="job-listings mb-5" OnItemCommand="dlAppliedJobs_ItemCommand">
                 <ItemTemplate>
-                    <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center" 
+                    <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
                         style="margin-bottom: 30px; border: 2px solid #f0f0f0; padding: 25px; border-radius: 12px; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;">
-                        
+
                         <div class="job-listing-logo" style="flex: 0 0 140px; margin-right: 25px;">
-                            <img src='<%# Eval("Company_Logo") != DBNull.Value && !string.IsNullOrEmpty(Eval("Company_Logo").ToString()) ? ResolveUrl(Eval("Company_Logo").ToString()) : ResolveUrl("~/images/job_logo_1.jpg") %>' 
-                                 alt="Company Logo" class="img-fluid" 
-                                 style="max-width: 120px; max-height: 120px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #f8f9fa;"
-                                 onerror="this.src='images/job_logo_1.jpg';">
+                            <img src='<%# Eval("Company_Logo") != DBNull.Value && !string.IsNullOrEmpty(Eval("Company_Logo").ToString()) ? ResolveUrl(Eval("Company_Logo").ToString()) : ResolveUrl("~/images/job_logo_1.jpg") %>'
+                                alt="Company Logo" class="img-fluid"
+                                style="max-width: 120px; max-height: 120px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #f8f9fa;"
+                                onerror="this.src='images/job_logo_1.jpg';">
                         </div>
-                        
+
                         <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between" style="gap: 20px;">
                             <div class="job-listing-position custom-width w-100 mb-3 mb-sm-0">
                                 <div class="row">
@@ -118,7 +118,7 @@
                                             <strong>Category:</strong> <%# Eval("Category") %>
                                         </p>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <div class="mb-3" style="padding: 15px; background: #f8f9fa; border-radius: 8px;">
                                             <p class="mb-2" style="font-size: 0.95rem; color: #666;">
@@ -129,31 +129,32 @@
                                                 <i class="icon-money mr-2"></i><%# Eval("Salary") %>
                                             </p>
                                             <div class="mt-2">
-                                                <span class='badge <%# GetStatusBadgeClass(Eval("Status").ToString()) %>' 
-                                                      style="font-size: 0.95rem; padding: 8px 16px; font-weight: 600; border-radius: 20px;">
+                                                <span class='badge <%# GetStatusBadgeClass(Eval("Status").ToString()) %>'
+                                                    style="font-size: 0.95rem; padding: 8px 16px; font-weight: 600; border-radius: 20px;">
                                                     <%# Eval("Status") %>
                                                 </span>
-                                                <span class='badge <%# Eval("JobType").ToString() == "Part-Time" ? "badge-danger" : Eval("JobType").ToString() == "Full-Time" ? "badge-success" : "badge-info" %>' 
-                                                      style="font-size: 0.9rem; padding: 8px 16px; font-weight: 600; border-radius: 20px; margin-left: 5px;">
+                                                <span class='badge <%# Eval("JobType").ToString() == "Part-Time" ? "badge-danger" : Eval("JobType").ToString() == "Full-Time" ? "badge-success" : "badge-info" %>'
+                                                    style="font-size: 0.9rem; padding: 8px 16px; font-weight: 600; border-radius: 20px; margin-left: 5px;">
                                                     <%# Eval("JobType") %>
                                                 </span>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="d-flex gap-2 flex-wrap">
-                                            <asp:Button ID="btnViewJob" runat="server" 
-                                                Text="View Job" 
-                                                CommandName="ViewJob" 
-                                                CommandArgument='<%# Eval("JobID") %>' 
-                                                CssClass="btn btn-primary btn-sm" 
-                                                style="padding: 10px 20px; font-weight: 600; border-radius: 20px; font-size: 0.9rem; margin-right: 5px;" />
-                                            
-                                            <asp:Button ID="btnViewApplication" runat="server" 
-                                                Text="Application Details" 
-                                                CommandName="ViewApplication" 
-                                                CommandArgument='<%# Eval("ApplicationID") %>' 
-                                                CssClass="btn btn-outline-primary btn-sm" 
-                                                style="padding: 10px 20px; font-weight: 600; border-radius: 20px; font-size: 0.9rem;" />
+                                            <asp:Button ID="btnViewJob" runat="server"
+                                                Text="View Job"
+                                                CommandName="ViewJob"
+                                                CommandArgument='<%# Eval("JobID") %>'
+                                                CssClass="btn btn-primary btn-sm"
+                                                Style="padding: 10px 20px; font-weight: 600; border-radius: 20px; font-size: 0.9rem; margin-right: 5px;" />
+
+                                            <asp:Button ID="btnViewApplication" runat="server"
+                                                Text="Download Application"
+                                                CommandName="ViewApplication"
+                                                CommandArgument='<%# Eval("ApplicationID") %>'
+                                                OnClientClick="this.form.target='_blank';"
+                                                CssClass="btn btn-outline-primary btn-sm"
+                                                Style="padding: 10px 20px; font-weight: 600; border-radius: 20px; font-size: 0.9rem;" />
                                         </div>
                                     </div>
                                 </div>
@@ -168,8 +169,8 @@
                     <i class="icon-paper-plane" style="font-size: 4rem; color: #ccc; margin-bottom: 20px; display: block;"></i>
                     <h4 style="color: #666; font-size: 1.5rem; font-weight: 600; margin-bottom: 10px;">No Applications Yet</h4>
                     <p style="color: #999; font-size: 1.1rem; margin-bottom: 20px;">You haven't applied to any jobs yet. Start exploring opportunities!</p>
-                    <a href="job_listings.aspx" class="btn btn-primary btn-lg px-5 py-3" 
-                       style="font-size: 1.1rem; font-weight: 600; border-radius: 30px; box-shadow: 0 6px 20px rgba(137, 186, 22, 0.3);">
+                    <a href="job_listings.aspx" class="btn btn-primary btn-lg px-5 py-3"
+                        style="font-size: 1.1rem; font-weight: 600; border-radius: 30px; box-shadow: 0 6px 20px rgba(137, 186, 22, 0.3);">
                         <i class="icon-search mr-2"></i>Browse Jobs
                     </a>
                 </div>
@@ -231,8 +232,7 @@
                 </div>
                 <div class="col-md-4 text-md-right mt-4 mt-md-0">
                     <a href="job_listings.aspx" class="btn btn-warning btn-lg px-5 py-3"
-                       style="font-weight: 600; border-radius: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.3);">
-                        Browse More Jobs
+                        style="font-weight: 600; border-radius: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.3);">Browse More Jobs
                     </a>
                 </div>
             </div>
@@ -245,36 +245,36 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
             border-color: #89ba16 !important;
         }
-        
+
         .btn-primary:hover, .btn-outline-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(137, 186, 22, 0.4) !important;
         }
-        
+
         .section-hero.inner-page {
             padding: 150px 0 100px 0;
         }
-        
+
         .badge-warning {
             background-color: #ffc107;
             color: #000;
         }
-        
+
         .badge-info {
             background-color: #17a2b8;
             color: #fff;
         }
-        
+
         .badge-primary {
             background-color: #89ba16;
             color: #fff;
         }
-        
+
         .badge-success {
             background-color: #28a745;
             color: #fff;
         }
-        
+
         .badge-danger {
             background-color: #dc3545;
             color: #fff;
@@ -328,9 +328,8 @@
             <div class="row text-center">
                 <div class="col-12">
                     <p class="copyright">
-                        <small>
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <small>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i>by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         </small>
                     </p>
                 </div>
@@ -350,7 +349,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
     <script src="js/custom.js"></script>
-</body>
+    </body>
 </html>
 </asp:Content>
 

@@ -234,3 +234,19 @@ C:\Users\karan\Source\Repos\asp.net_project\Job_Portal\obj\Debug\Job_Portal.cspr
 C:\Users\karan\Source\Repos\asp.net_project\Job_Portal\obj\Debug\Job_Portal.csproj.Up2Date
 C:\Users\karan\Source\Repos\asp.net_project\Job_Portal\obj\Debug\Job_Portal.dll
 C:\Users\karan\Source\Repos\asp.net_project\Job_Portal\obj\Debug\Job_Portal.pdb
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.Shared.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Rajveer Meta\source\repos\asp.net_project\Job_Portal\bin\stdole.dll
