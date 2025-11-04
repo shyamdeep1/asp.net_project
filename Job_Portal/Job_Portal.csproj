@@ -74,7 +74,6 @@
     <Content Include="App_Data\Portal_Database_log.ldf">
       <DependentUpon>Portal_Database.mdf</DependentUpon>
     </Content>
-    <Content Include="contact.aspx" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap-select.min.css" />
     <Content Include="css\custom-bs.css" />
@@ -82,8 +81,6 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\quill.snow.css" />
     <Content Include="css\style.css" />
-    <Content Include="Database_Scripts\Complete_Database_Setup.sql" />
-    <Content Include="Database_Scripts\Create_Application_Tables.sql" />
     <Content Include="fonts\icomoon\demo-files\demo.css" />
     <Content Include="fonts\icomoon\demo-files\demo.js" />
     <Content Include="fonts\icomoon\demo.html" />
@@ -138,6 +135,7 @@
     <Content Include="images\sq_img_8.jpg" />
     <Content Include="images\sq_img_9.jpg" />
     <Content Include="index.aspx" />
+    <Content Include="jobseeker_applied_jobs.aspx" />
     <Content Include="jobseeker_profile.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="recruiter_dashboard.aspx" />
@@ -161,7 +159,6 @@
     <Content Include="login.aspx" />
     <Content Include="my_applications.aspx" />
     <Content Include="recruiter_post_job.aspx" />
-    <Content Include="readme.txt" />
     <Content Include="register_jobseeker.aspx" />
     <Content Include="register_recruiter.aspx" />
     <Content Include="saved_jobs.aspx" />
@@ -183,13 +180,6 @@
     <Compile Include="admin_dashboard.aspx.designer.cs">
       <DependentUpon>admin_dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="contact.aspx.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="contact.aspx.designer.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +190,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jobseeker_applied_jobs.aspx.cs">
+      <DependentUpon>jobseeker_applied_jobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jobseeker_applied_jobs.aspx.designer.cs">
+      <DependentUpon>jobseeker_applied_jobs.aspx</DependentUpon>
     </Compile>
     <Compile Include="jobseeker_profile.aspx.cs">
       <DependentUpon>jobseeker_profile.aspx</DependentUpon>
@@ -416,6 +413,7 @@
     <Content Include="scss\style.scss" />
     <Content Include="scss\_custom-variables.scss" />
     <Content Include="scss\_site-navbar.scss" />
+    <Content Include="RECRUITER_DASHBOARD_ENHANCEMENTS.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
