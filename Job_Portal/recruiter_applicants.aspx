@@ -218,8 +218,8 @@
                             <p class="text-muted">Review and manage candidate applications</p>
                         </div>
                         <div class="print-buttons">
-                            <asp:Button ID="btnPrintAll" runat="server" Text="Print All Applications" CssClass="btn-print" OnClientClick="window.print(); return false;" />
-                            <asp:Button ID="btnPrintSelected" runat="server" Text="Print Selected Job" CssClass="btn-print" OnClientClick="window.print(); return false;" />
+                            <asp:Button ID="btnPrintAll" runat="server" Text="Print All Applications" CssClass="btn-print" OnClick="btnPrintAll_Click" />
+                            <asp:Button ID="btnPrintSelected" runat="server" Text="Print Selected Job" CssClass="btn-print" OnClientClick="" />
                         </div>
                     </div>
                 </div>
