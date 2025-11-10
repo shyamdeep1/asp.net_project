@@ -123,7 +123,7 @@
                             <li><a href="recruiter_post_job.aspx" class="nav-link">Post Job</a></li>
                             <li><a href="recruiter_manage_jobs.aspx" class="nav-link">Manage Jobs</a></li>
                             <li><a href="recruiter_applicants.aspx" class="nav-link">Applications</a></li>
-                            <li><a href="recruiter_profile.aspx" class="nav-link">Profile</a></li>
+                            <li><a href="recfruiter_profile.aspx" class="nav-link">Profile</a></li>
                             <li><a href="logout.aspx" class="nav-link">Logout</a></li>
                         </ul>
                     </nav>

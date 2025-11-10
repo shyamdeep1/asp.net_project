@@ -84,6 +84,8 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\quill.snow.css" />
     <Content Include="css\style.css" />
+    <Content Include="Database_Scripts\Add_Recruiter_Profile_Columns.sql" />
+    <Content Include="Database_Scripts\Quick_Add_Columns.sql" />
     <Content Include="DownloadApplication.aspx" />
     <Content Include="fonts\icomoon\demo-files\demo.css" />
     <Content Include="fonts\icomoon\demo-files\demo.js" />
@@ -142,9 +144,9 @@
     <Content Include="jobseeker_applied_jobs.aspx" />
     <Content Include="jobseeker_profile.aspx" />
     <Content Include="logout.aspx" />
+    <Content Include="recfruiter_profile.aspx" />
     <Content Include="recruiter_dashboard.aspx" />
     <Content Include="recruiter_manage_jobs.aspx" />
-    <Content Include="recruiter_profile.aspx" />
     <Content Include="recruiter_applicants.aspx" />
     <Content Include="job_details.aspx" />
     <Content Include="job_listings.aspx" />
@@ -226,6 +228,13 @@
       <DependentUpon>logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="recfruiter_profile.aspx.cs">
+      <DependentUpon>recfruiter_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recfruiter_profile.aspx.designer.cs">
+      <DependentUpon>recfruiter_profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="recruiter_dashboard.aspx.cs">
       <DependentUpon>recruiter_dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,13 +248,6 @@
     </Compile>
     <Compile Include="recruiter_manage_jobs.aspx.designer.cs">
       <DependentUpon>recruiter_manage_jobs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="recruiter_profile.aspx.cs">
-      <DependentUpon>recruiter_profile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="recruiter_profile.aspx.designer.cs">
-      <DependentUpon>recruiter_profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="recruiter_applicants.aspx.cs">
       <DependentUpon>recruiter_applicants.aspx</DependentUpon>
@@ -430,7 +432,7 @@
     <Content Include="scss\style.scss" />
     <Content Include="scss\_custom-variables.scss" />
     <Content Include="scss\_site-navbar.scss" />
-    <Content Include="RECRUITER_DASHBOARD_ENHANCEMENTS.md" />
+    <Content Include="RECRUITER_PROFILE_SETUP_GUIDE.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
