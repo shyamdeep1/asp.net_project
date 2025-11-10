@@ -122,7 +122,7 @@
                             <li><a href="recruiter_dashboard.aspx" class="nav-link active">Dashboard</a></li>
                             <li><a href="recruiter_post_job.aspx" class="nav-link">Post Job</a></li>
                             <li><a href="recruiter_manage_jobs.aspx" class="nav-link">Manage Jobs</a></li>
-                            <li><a href="recruiter_applications.aspx" class="nav-link">Applications</a></li>
+                            <li><a href="recruiter_applicants.aspx" class="nav-link">Applications</a></li>
                             <li><a href="recruiter_profile.aspx" class="nav-link">Profile</a></li>
                             <li><a href="logout.aspx" class="nav-link">Logout</a></li>
                         </ul>
@@ -200,7 +200,7 @@
                             <a href="recruiter_manage_jobs.aspx" class="quick-action-btn">
                                 <i class="icon-list mr-2"></i>View All Jobs
                             </a>
-                            <a href="recruiter_applications.aspx" class="quick-action-btn">
+                            <a href="recruiter_applicants.aspx" class="quick-action-btn">
                                 <i class="icon-folder mr-2"></i>View Applications
                             </a>
                             <a href="recruiter_profile.aspx" class="quick-action-btn">
@@ -242,7 +242,7 @@
                             <p class="text-muted mt-2">No recent applications</p>
                         </asp:Panel>
                         <div class="mt-3 text-right">
-                            <a href="recruiter_applications.aspx" class="btn btn-link">View All Applications →</a>
+                            <a href="recruiter_applicants.aspx" class="btn btn-link">View All Applications →</a>
                         </div>
                     </div>
                 </div>
@@ -396,7 +396,7 @@
                     <ul class="list-unstyled">
                         <li><a href="recruiter_post_job.aspx">Post a Job</a></li>
                         <li><a href="recruiter_manage_jobs.aspx">Manage Jobs</a></li>
-                        <li><a href="recruiter_applications.aspx">View Applications</a></li>
+                        <li><a href="recruiter_applicants.aspx">View Applications</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-3 mb-4 mb-md-0">

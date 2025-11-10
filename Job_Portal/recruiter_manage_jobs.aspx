@@ -42,7 +42,7 @@
                         <li><a href="recruiter_dashboard.aspx">Dashboard</a></li>
                         <li><a href="recruiter_post_job.aspx">Post Job</a></li>
                         <li class="active"><a href="recruiter_manage_jobs.aspx">Manage Jobs</a></li>
-                        <li><a href="recruiter_applications.aspx">Applications</a></li>
+                        <li><a href="recruiter_applicants.aspx">Applications</a></li>
                         <li><a href="recruiter_profile.aspx">My Profile</a></li>
                         <li><a href="logout.aspx">Logout</a></li>
                     </ul>

@@ -145,7 +145,7 @@
     <Content Include="recruiter_dashboard.aspx" />
     <Content Include="recruiter_manage_jobs.aspx" />
     <Content Include="recruiter_profile.aspx" />
-    <Content Include="recruiter_view_applicants.aspx" />
+    <Content Include="recruiter_applicants.aspx" />
     <Content Include="job_details.aspx" />
     <Content Include="job_listings.aspx" />
     <Content Include="js\bootstrap-select.min.js" />
@@ -247,12 +247,12 @@
     <Compile Include="recruiter_profile.aspx.designer.cs">
       <DependentUpon>recruiter_profile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="recruiter_view_applicants.aspx.cs">
-      <DependentUpon>recruiter_view_applicants.aspx</DependentUpon>
+    <Compile Include="recruiter_applicants.aspx.cs">
+      <DependentUpon>recruiter_applicants.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="recruiter_view_applicants.aspx.designer.cs">
-      <DependentUpon>recruiter_view_applicants.aspx</DependentUpon>
+    <Compile Include="recruiter_applicants.aspx.designer.cs">
+      <DependentUpon>recruiter_applicants.aspx</DependentUpon>
     </Compile>
     <Compile Include="job_details.aspx.cs">
       <DependentUpon>job_details.aspx</DependentUpon>
