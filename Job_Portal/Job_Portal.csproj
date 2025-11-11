@@ -144,6 +144,7 @@
     <Content Include="jobseeker_applied_jobs.aspx" />
     <Content Include="jobseeker_profile.aspx" />
     <Content Include="logout.aspx" />
+    <Content Include="print_applications.aspx" />
     <Content Include="recfruiter_profile.aspx" />
     <Content Include="recruiter_dashboard.aspx" />
     <Content Include="recruiter_manage_jobs.aspx" />
@@ -192,6 +193,12 @@
       <DependentUpon>ApplicationReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="AppliedJobs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppliedJobs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DownloadApplication.aspx.cs">
       <DependentUpon>DownloadApplication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +240,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PrintAllJobs.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="print_applications.aspx.cs">
+      <DependentUpon>print_applications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="print_applications.aspx.designer.cs">
+      <DependentUpon>print_applications.aspx</DependentUpon>
     </Compile>
     <Compile Include="recfruiter_profile.aspx.cs">
       <DependentUpon>recfruiter_profile.aspx</DependentUpon>
@@ -459,9 +473,12 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ApplicationReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppliedJobs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AppliedJobs.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrintAllJobs.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>PrintAllJobs.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

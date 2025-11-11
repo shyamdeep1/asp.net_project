@@ -42,9 +42,6 @@ namespace Job_Portal
             }
         }
 
-
-            
-
         private void CheckUserLogin()
         {
             if (Session["UserID"] == null)
@@ -140,44 +137,32 @@ namespace Job_Portal
             int userId = Convert.ToInt32(Session["UserID"]);
             int jobId = Convert.ToInt32(Request.QueryString["JobID"]);
 
-            try
-            {
-                getcon();
-                da = new SqlDataAdapter("SELECT COUNT(*) as RecordCount FROM SavedJobs WHERE JobSeekerID = @userId AND JobID = @jobId", con);
-                da.SelectCommand.Parameters.AddWithValue("@userId", userId);
-                da.SelectCommand.Parameters.AddWithValue("@jobId", jobId);
-                ds = new DataSet();
-                da.Fill(ds);
+            getcon();
+            da = new SqlDataAdapter("SELECT COUNT(*) as RecordCount FROM SavedJobs WHERE JobSeekerID = @userId AND JobID = @jobId", con);
+            da.SelectCommand.Parameters.AddWithValue("@userId", userId);
+            da.SelectCommand.Parameters.AddWithValue("@jobId", jobId);
+            ds = new DataSet();
+            da.Fill(ds);
 
-                int exists = Convert.ToInt32(ds.Tables[0].Rows[0]["RecordCount"]);
+            int exists = Convert.ToInt32(ds.Tables[0].Rows[0]["RecordCount"]);
 
-                if (exists == 0)
-                {
-                    cmd = new SqlCommand("INSERT INTO SavedJobs (JobSeekerID, JobID, SavedDate) VALUES (@userId, @jobId, @savedDate)", con);
-                    cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@jobId", jobId);
-                    cmd.Parameters.AddWithValue("@savedDate", DateTime.Now);
-                    cmd.ExecuteNonQuery();
-                    
-                    lblMessage.Text = "Job saved successfully!";
-                    lblMessage.CssClass = "text-success mb-3 d-block";
-                }
-                else
-                {
-                    lblMessage.Text = "Job already saved!";
-                    lblMessage.CssClass = "text-warning mb-3 d-block";
-                }
-                con.Close();
-            }
-            catch (Exception ex)
+            if (exists == 0)
             {
-                lblMessage.Text = "Error saving job: " + ex.Message;
-                lblMessage.CssClass = "text-danger mb-3 d-block";
-                if (con != null && con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
+                cmd = new SqlCommand("INSERT INTO SavedJobs (JobSeekerID, JobID, SavedDate) VALUES (@userId, @jobId, @savedDate)", con);
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@jobId", jobId);
+                cmd.Parameters.AddWithValue("@savedDate", DateTime.Now);
+                cmd.ExecuteNonQuery();
+                
+                lblMessage.Text = "Job saved successfully!";
+                lblMessage.CssClass = "text-success mb-3 d-block";
             }
+            else
+            {
+                lblMessage.Text = "Job already saved!";
+                lblMessage.CssClass = "text-warning mb-3 d-block";
+            }
+            con.Close();
         }
 
         protected void btnSubmitApplication_Click(object sender, EventArgs e)
@@ -198,72 +183,56 @@ namespace Job_Portal
             int userId = Convert.ToInt32(Session["UserID"]);
             int jobId = Convert.ToInt32(Request.QueryString["JobID"]);
 
-            try
+            getcon();
+            da = new SqlDataAdapter("SELECT COUNT(*) as RecordCount FROM Applications WHERE JobSeekerID = @userId AND JobID = @jobId", con);
+            da.SelectCommand.Parameters.AddWithValue("@userId", userId);
+            da.SelectCommand.Parameters.AddWithValue("@jobId", jobId);
+            ds = new DataSet();
+            da.Fill(ds);
+
+            int alreadyApplied = Convert.ToInt32(ds.Tables[0].Rows[0]["RecordCount"]);
+            con.Close();
+
+            if (alreadyApplied > 0)
             {
-                getcon();
-                // Check if user already applied for this job
-                da = new SqlDataAdapter("SELECT COUNT(*) as RecordCount FROM Applications WHERE JobSeekerID = @userId AND JobID = @jobId", con);
-                da.SelectCommand.Parameters.AddWithValue("@userId", userId);
-                da.SelectCommand.Parameters.AddWithValue("@jobId", jobId);
-                ds = new DataSet();
-                da.Fill(ds);
-
-                int alreadyApplied = Convert.ToInt32(ds.Tables[0].Rows[0]["RecordCount"]);
-                con.Close();
-
-                if (alreadyApplied > 0)
-                {
-                    lblMessage.Text = "You have already applied for this job!";
-                    lblMessage.CssClass = "text-warning mb-3 d-block";
-                    return;
-                }
-
-                // Create directory if it doesn't exist
-                string resumeDir = Server.MapPath("~/Resumes/");
-                if (!System.IO.Directory.Exists(resumeDir))
-                {
-                    System.IO.Directory.CreateDirectory(resumeDir);
-                }
-
-                // Save resume file
-                resumeFileName = "~/Resumes/" + userId + "_" + DateTime.Now.Ticks + "_" + fuResume.FileName;
-                fuResume.SaveAs(Server.MapPath(resumeFileName));
-
-                // Insert application
-                getcon();
-                string query = @"INSERT INTO Applications (JobID, JobSeekerID, FullName, Email, Phone, Resume, Experience, CoverLetter, CurrentSalary, ExpectedSalary, ApplicationDate, Status) 
-                               VALUES (@jobId, @userId, @fullName, @email, @phone, @resume, @experience, @coverLetter, @currentSalary, @expectedSalary, @applicationDate, @status)";
-
-                cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@jobId", jobId);
-                cmd.Parameters.AddWithValue("@userId", userId);
-                cmd.Parameters.AddWithValue("@fullName", txtFullName.Text.Trim());
-                cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
-                cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
-                cmd.Parameters.AddWithValue("@resume", resumeFileName);
-                cmd.Parameters.AddWithValue("@experience", ddlExperience.SelectedValue);
-                cmd.Parameters.AddWithValue("@coverLetter", txtCoverLetter.Text.Trim());
-                cmd.Parameters.AddWithValue("@currentSalary", string.IsNullOrEmpty(txtCurrentSalary.Text.Trim()) ? (object)DBNull.Value : txtCurrentSalary.Text.Trim());
-                cmd.Parameters.AddWithValue("@expectedSalary", string.IsNullOrEmpty(txtExpectedSalary.Text.Trim()) ? (object)DBNull.Value : txtExpectedSalary.Text.Trim());
-                cmd.Parameters.AddWithValue("@applicationDate", DateTime.Now);
-                cmd.Parameters.AddWithValue("@status", "Pending");
-
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                lblMessage.Text = "Application submitted successfully!";
-                lblMessage.CssClass = "text-success mb-3 d-block";
-                ClearForm();
+                lblMessage.Text = "You have already applied for this job!";
+                lblMessage.CssClass = "text-warning mb-3 d-block";
+                return;
             }
-            catch (Exception ex)
+
+            string resumeDir = Server.MapPath("~/Resumes/");
+            if (!System.IO.Directory.Exists(resumeDir))
             {
-                lblMessage.Text = "Error submitting application: " + ex.Message;
-                lblMessage.CssClass = "text-danger mb-3 d-block";
-                if (con != null && con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
+                System.IO.Directory.CreateDirectory(resumeDir);
             }
+
+            resumeFileName = "~/Resumes/" + userId + "_" + DateTime.Now.Ticks + "_" + fuResume.FileName;
+            fuResume.SaveAs(Server.MapPath(resumeFileName));
+
+            getcon();
+            string query = @"INSERT INTO Applications (JobID, JobSeekerID, FullName, Email, Phone, Resume, Experience, CoverLetter, CurrentSalary, ExpectedSalary, ApplicationDate, Status) 
+                           VALUES (@jobId, @userId, @fullName, @email, @phone, @resume, @experience, @coverLetter, @currentSalary, @expectedSalary, @applicationDate, @status)";
+
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@jobId", jobId);
+            cmd.Parameters.AddWithValue("@userId", userId);
+            cmd.Parameters.AddWithValue("@fullName", txtFullName.Text.Trim());
+            cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
+            cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
+            cmd.Parameters.AddWithValue("@resume", resumeFileName);
+            cmd.Parameters.AddWithValue("@experience", ddlExperience.SelectedValue);
+            cmd.Parameters.AddWithValue("@coverLetter", txtCoverLetter.Text.Trim());
+            cmd.Parameters.AddWithValue("@currentSalary", string.IsNullOrEmpty(txtCurrentSalary.Text.Trim()) ? (object)DBNull.Value : txtCurrentSalary.Text.Trim());
+            cmd.Parameters.AddWithValue("@expectedSalary", string.IsNullOrEmpty(txtExpectedSalary.Text.Trim()) ? (object)DBNull.Value : txtExpectedSalary.Text.Trim());
+            cmd.Parameters.AddWithValue("@applicationDate", DateTime.Now);
+            cmd.Parameters.AddWithValue("@status", "Pending");
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            lblMessage.Text = "Application submitted successfully!";
+            lblMessage.CssClass = "text-success mb-3 d-block";
+            ClearForm();
         }
 
         private void ClearForm()

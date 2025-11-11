@@ -30,18 +30,7 @@ namespace Job_Portal
             con = new SqlConnection(s);
             con.Open();
         }
-        //void select()
-        //{
-        //    getcon();
-        //    da = new SqlDataAdapter("select * from Jobs where Id='" + ViewState["Id"] + "'", con);
-        //    ds = new DataSet();
-        //    da.Fill(ds);
 
-        //    //Textnm.Text = ds.Tables[0].Rows[0][1].ToString();
-        //    //Texteml.Text = ds.Tables[0].Rows[0][3].ToString();
-        //    //RadioButtonList1.Text = ds.Tables[0].Rows[0][2].ToString();
-        //    //DropDownList1.SelectedValue = ds.Tables[0].Rows[0][4].ToString();
-        //}
         void fillgrid()
         {
             getcon();
@@ -50,7 +39,6 @@ namespace Job_Portal
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
-
         }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {

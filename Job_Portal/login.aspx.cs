@@ -38,71 +38,60 @@ namespace Job_Portal
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
-                try
+                con.Open();
+
+                string query = "SELECT UserID, FullName, Role, Password FROM Users WHERE Email=@Email";
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    con.Open();
+                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
 
-                    string query = "SELECT UserID, FullName, Role, Password FROM Users WHERE Email=@Email";
-                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        if (reader.Read())
                         {
-                            if (reader.Read())
+                            string storedHash = reader["Password"].ToString();
+                            string enteredHash = HashPassword(txtPassword.Text.Trim());
+
+                            if (storedHash == enteredHash)
                             {
-                                string storedHash = reader["Password"].ToString();
-                                string enteredHash = HashPassword(txtPassword.Text.Trim());
+                                Session["UserId"] = reader["UserId"];
+                                Session["FullName"] = reader["FullName"];
+                                Session["Role"] = reader["Role"];
 
-                                if (storedHash == enteredHash)
+                                string role = reader["Role"].ToString().Trim();
+
+                                reader.Close();
+
+                                if (string.Equals(role, "JobSeeker", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    // Store session info
-                                    Session["UserId"] = reader["UserId"];
-                                   
-                                    Session["FullName"] = reader["FullName"];
-                                    Session["Role"] = reader["Role"];
-
-                                    string role = reader["Role"].ToString().Trim();
-
-                                    //  Close reader before redirect
-                                    reader.Close();
-
-                                    // Redirect based on role (case-insensitive)
-                                    if (string.Equals(role, "JobSeeker", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        Response.Redirect("index.aspx", false);
-                                        Context.ApplicationInstance.CompleteRequest();
-                                    }
-                                    else if (string.Equals(role, "Recruiter", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        Response.Redirect("recruiter_dashboard.aspx", false);
-                                        Context.ApplicationInstance.CompleteRequest();
-                                    }
-                                    else if (string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        Response.Redirect("admin_dashboard.aspx", false);
-                                        Context.ApplicationInstance.CompleteRequest();
-                                    }
-                                    else
-                                    {
-                                        lblMessage.Text = "Invalid role: " + role;
-                                    }
+                                    Response.Redirect("index.aspx", false);
+                                    Context.ApplicationInstance.CompleteRequest();
+                                }
+                                else if (string.Equals(role, "Recruiter", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    Response.Redirect("recruiter_dashboard.aspx", false);
+                                    Context.ApplicationInstance.CompleteRequest();
+                                }
+                                else if (string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    Response.Redirect("admin_dashboard.aspx", false);
+                                    Context.ApplicationInstance.CompleteRequest();
                                 }
                                 else
                                 {
-                                    lblMessage.Text = "Invalid email or password.";
+                                    lblMessage.Text = "Invalid role: " + role;
                                 }
                             }
                             else
                             {
-                                lblMessage.Text = "User not found.";
+                                lblMessage.Text = "Invalid email or password.";
                             }
                         }
+                        else
+                        {
+                            lblMessage.Text = "User not found.";
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    lblMessage.Text = "Error: " + ex.Message;
                 }
             }
         }

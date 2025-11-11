@@ -15,13 +15,11 @@ using System.Web.UI.WebControls;
 namespace Job_Portal
 {
     public partial class register_jobseeker : System.Web.UI.Page
-
     {
         string connStr = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
 
         }
 
@@ -37,7 +35,6 @@ namespace Job_Portal
             {
                 con.Open();
 
-                // Check if email exists
                 SqlCommand checkEmail = new SqlCommand(
                     "SELECT COUNT(*) FROM Users WHERE Email='"+txtEmail.Text+"'", con);
                 int exists = (int)checkEmail.ExecuteScalar();
@@ -48,11 +45,8 @@ namespace Job_Portal
                     return;
                 }
 
-                // Insert jobseeker
                 SqlCommand cmd = new SqlCommand(
                     "INSERT INTO Users (FullName, Email, Password, Role) VALUES ('"+txtFullName.Text+"', '"+txtEmail.Text+"', '"+HashPassword(txtPassword.Text)+"','JobSeeker')", con);
-
-               
 
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
@@ -66,11 +60,9 @@ namespace Job_Portal
                     lblMessage.Text = "Registration failed. Try again.";
                 }
             }
-
         }
         
-
-             private string HashPassword(string password)
+        private string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -81,7 +73,6 @@ namespace Job_Portal
                 return sb.ToString();
             }
         }
-
 
         private void ClearForm()
         {

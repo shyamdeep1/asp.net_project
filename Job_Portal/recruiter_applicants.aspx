@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="recruiter_applicants.aspx.cs" Inherits="Job_Portal.job_applicants" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .job-card {
@@ -9,18 +10,18 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
-        
-        .job-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-        
+
+            .job-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            }
+
         .job-header {
             border-bottom: 2px solid #89ba16;
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
-        
+
         .application-item {
             background: #f8f9fa;
             border-left: 4px solid #89ba16;
@@ -29,49 +30,49 @@
             border-radius: 5px;
             transition: all 0.3s ease;
         }
-        
-        .application-item:hover {
-            background: #e9ecef;
-            border-left-color: #6a9413;
-        }
-        
+
+            .application-item:hover {
+                background: #e9ecef;
+                border-left-color: #6a9413;
+            }
+
         .status-badge {
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
         }
-        
+
         .status-pending {
             background-color: #fff3cd;
             color: #856404;
         }
-        
+
         .status-reviewed {
             background-color: #cfe2ff;
             color: #084298;
         }
-        
+
         .status-shortlisted {
             background-color: #d1e7dd;
             color: #0f5132;
         }
-        
+
         .status-rejected {
             background-color: #f8d7da;
             color: #842029;
         }
-        
+
         .status-accepted {
             background-color: #d1e7dd;
             color: #0a3622;
         }
-        
+
         .print-buttons {
             margin: 20px 0;
             text-align: right;
         }
-        
+
         .btn-print {
             background: #89ba16;
             color: white;
@@ -82,14 +83,14 @@
             margin-left: 10px;
             transition: all 0.3s ease;
         }
-        
-        .btn-print:hover {
-            background: #6a9413;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(137, 186, 22, 0.3);
-            color: white;
-        }
-        
+
+            .btn-print:hover {
+                background: #6a9413;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(137, 186, 22, 0.3);
+                color: white;
+            }
+
         .no-applications {
             text-align: center;
             padding: 40px;
@@ -97,7 +98,7 @@
             border-radius: 10px;
             margin-top: 20px;
         }
-        
+
         .job-stats {
             display: flex;
             justify-content: space-around;
@@ -106,58 +107,58 @@
             background: #f8f9fa;
             border-radius: 5px;
         }
-        
+
         .stat-item {
             text-align: center;
         }
-        
+
         .stat-number {
             font-size: 1.5rem;
             font-weight: bold;
             color: #89ba16;
         }
-        
+
         .stat-label {
             font-size: 0.85rem;
             color: #6c757d;
         }
-        
+
         .action-buttons {
             margin-top: 10px;
         }
-        
-        .action-buttons .btn {
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-        
+
+            .action-buttons .btn {
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+
         .applicant-details {
             display: flex;
             justify-content: space-between;
             align-items: start;
             flex-wrap: wrap;
         }
-        
+
         .applicant-info {
             flex: 1;
             min-width: 250px;
         }
-        
+
         .applicant-status {
             text-align: right;
         }
-        
+
         @media print {
             .no-print {
                 display: none !important;
             }
-            
+
             .job-card {
                 page-break-inside: avoid;
                 box-shadow: none;
                 border: 1px solid #ddd;
             }
-            
+
             .application-item {
                 page-break-inside: avoid;
             }
@@ -166,7 +167,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    
+
     <!-- NAVBAR -->
     <header class="site-navbar mt-3 no-print">
         <div class="container-fluid">
@@ -219,7 +220,6 @@
                         </div>
                         <div class="print-buttons">
                             <asp:Button ID="btnPrintAll" runat="server" Text="Print All Applications" CssClass="btn-print" OnClick="btnPrintAll_Click" />
-                            <asp:Button ID="btnPrintSelected" runat="server" Text="Print Selected Job" CssClass="btn-print" OnClientClick="" />
                         </div>
                     </div>
                 </div>
@@ -228,27 +228,32 @@
             <div class="row">
                 <div class="col-lg-12">
                     <asp:Panel ID="pnlJobs" runat="server">
-                        <asp:Repeater ID="rptJobs" runat="server" OnItemDataBound="rptJobs_ItemDataBound">
+                        <asp:Repeater ID="rptJobs" runat="server" OnItemDataBound="rptJobs_ItemDataBound" OnItemCommand="rptJobs_ItemCommand">
                             <ItemTemplate>
                                 <div class="job-card">
                                     <div class="job-header">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <div>
                                                 <h3 class="text-primary mb-2"><%# Eval("JobTitle") %></h3>
+                                                <asp:Button ID="btnViewReport"
+                                                    runat="server"
+                                                    Text="View Applications Report"
+                                                    CssClass="btn btn-sm btn-outline-success ml-2"
+                                                    CommandName="ViewApplications"
+                                                    CommandArgument='<%# Eval("JobID") %>' />
                                                 <p class="mb-1">
-                                                    <i class="icon-room text-muted"></i> <strong>Location:</strong> <%# Eval("Location") %>
+                                                    <i class="icon-room text-muted"></i><strong>Location:</strong> <%# Eval("Location") %>
                                                     <span class="mx-3">|</span>
-                                                    <i class="icon-money text-muted"></i> <strong>Salary:</strong> <%# Eval("Salary") %>
+                                                    <i class="icon-money text-muted"></i><strong>Salary:</strong> <%# Eval("Salary") %>
                                                 </p>
                                                 <p class="mb-0 text-muted">
-                                                    <i class="icon-briefcase"></i> <strong>Type:</strong> <%# Eval("JobType") %>
+                                                    <i class="icon-briefcase"></i><strong>Type:</strong> <%# Eval("JobType") %>
                                                     <span class="mx-3">|</span>
-                                                    <i class="icon-tag"></i> <strong>Category:</strong> <%# Eval("Category") %>
+                                                    <i class="icon-tag"></i><strong>Category:</strong> <%# Eval("Category") %>
                                                 </p>
                                             </div>
                                             <div>
-                                                <span class="badge badge-info" style="font-size: 1rem; padding: 8px 15px;">
-                                                    Job ID: <%# Eval("JobID") %>
+                                                <span class="badge badge-info" style="font-size: 1rem; padding: 8px 15px;">Job ID: <%# Eval("JobID") %>
                                                 </span>
                                             </div>
                                         </div>
@@ -275,29 +280,29 @@
 
                                     <div class="mt-4">
                                         <h5 class="mb-3">
-                                            <i class="icon-users text-primary"></i> Applicants
+                                            <i class="icon-users text-primary"></i>Applicants
                                             <span class="badge badge-primary ml-2"><%# Eval("TotalApplications") %></span>
                                         </h5>
-                                        
+
                                         <asp:Repeater ID="rptApplications" runat="server">
                                             <ItemTemplate>
                                                 <div class="application-item">
                                                     <div class="applicant-details">
                                                         <div class="applicant-info">
                                                             <h6 class="mb-2">
-                                                                <i class="icon-user text-primary"></i> 
+                                                                <i class="icon-user text-primary"></i>
                                                                 <strong><%# Eval("FullName") %></strong>
                                                             </h6>
                                                             <p class="mb-1">
-                                                                <i class="icon-envelope text-muted"></i> 
+                                                                <i class="icon-envelope text-muted"></i>
                                                                 <a href='mailto:<%# Eval("Email") %>'><%# Eval("Email") %></a>
                                                             </p>
                                                             <p class="mb-1">
-                                                                <i class="icon-phone text-muted"></i> 
+                                                                <i class="icon-phone text-muted"></i>
                                                                 <%# Eval("Phone") %>
                                                             </p>
                                                             <p class="mb-1 text-muted">
-                                                                <i class="icon-calendar"></i> 
+                                                                <i class="icon-calendar"></i>
                                                                 Applied on: <%# Convert.ToDateTime(Eval("ApplicationDate")).ToString("MMMM dd, yyyy") %>
                                                             </p>
                                                             <%# !string.IsNullOrEmpty(Eval("Resume").ToString()) ? 
@@ -309,7 +314,7 @@
                                                                 <%# Eval("Status") %>
                                                             </span>
                                                             <div class="action-buttons no-print">
-                                                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control form-control-sm mt-2" 
+                                                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control form-control-sm mt-2"
                                                                     AutoPostBack="true" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                                                                     <asp:ListItem Value="">Change Status</asp:ListItem>
                                                                     <asp:ListItem Value="Pending">Pending</asp:ListItem>
