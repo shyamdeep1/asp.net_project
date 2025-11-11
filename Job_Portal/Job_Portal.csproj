@@ -144,6 +144,8 @@
     <Content Include="jobseeker_applied_jobs.aspx" />
     <Content Include="jobseeker_profile.aspx" />
     <Content Include="logout.aspx" />
+    <Content Include="manage_job.aspx" />
+    <Content Include="manage_users.aspx" />
     <Content Include="print_applications.aspx" />
     <Content Include="recfruiter_profile.aspx" />
     <Content Include="recruiter_dashboard.aspx" />
@@ -234,6 +236,20 @@
     <Compile Include="logout.aspx.cs">
       <DependentUpon>logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_job.aspx.cs">
+      <DependentUpon>manage_job.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_job.aspx.designer.cs">
+      <DependentUpon>manage_job.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_users.aspx.cs">
+      <DependentUpon>manage_users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_users.aspx.designer.cs">
+      <DependentUpon>manage_users.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrintAllJobs.cs">
       <AutoGen>True</AutoGen>
