@@ -6,14 +6,14 @@
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ApplicationReport : ReportClass {
+    public class AppliedJobs : ReportClass {
         
-        public ApplicationReport() {
+        public AppliedJobs() {
         }
         
         public override string ResourceName {
             get {
-                return "ApplicationReport.rpt";
+                return "AppliedJobs.rpt";
             }
             set {
             }
@@ -29,7 +29,7 @@
         
         public override string FullResourceName {
             get {
-                return "Job_Portal.ApplicationReport.rpt";
+                return "Job_Portal.AppliedJobs.rpt";
             }
             set {
             }
@@ -53,7 +53,7 @@
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -61,7 +61,7 @@
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -69,17 +69,33 @@
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedApplicationReport : Component, ICachedReport {
+    public class CachedAppliedJobs : Component, ICachedReport {
         
-        public CachedApplicationReport() {
+        public CachedAppliedJobs() {
         }
         
         [Browsable(false)]
@@ -113,7 +129,7 @@
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ApplicationReport rpt = new ApplicationReport();
+            AppliedJobs rpt = new AppliedJobs();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -37,7 +37,6 @@ namespace Job_Portal
                     Response.Redirect("login.aspx");
                 }
 
-                // Check if this is edit mode
                 if (Request.QueryString["JobID"] != null)
                 {
                     jobId = Convert.ToInt32(Request.QueryString["JobID"]);
@@ -77,14 +76,12 @@ namespace Job_Portal
                 ddlJobType.SelectedValue = reader["JobType"].ToString();
                 ddlCategory.SelectedValue = reader["Category"].ToString();
 
-                // Handle deadline date format
                 if (reader["Deadline"] != DBNull.Value)
                 {
                     DateTime deadline = Convert.ToDateTime(reader["Deadline"]);
                     txtDeadline.Text = deadline.ToString("yyyy-MM-dd");
                 }
 
-                // Store current logo path
                 if (reader["Company_Logo"] != DBNull.Value)
                 {
                     Flnm = reader["Company_Logo"].ToString();
@@ -98,7 +95,6 @@ namespace Job_Portal
         {
             if (btnSaveJob.Text == "Post Job")
             {
-                // Insert new job
                 int userId = Convert.ToInt32(Session["UserID"]);
                 int recruiterId = 0;
 
@@ -130,10 +126,8 @@ namespace Job_Portal
             }
             else if (btnSaveJob.Text == "Update Job")
             {
-                // Update existing job
                 jobId = Convert.ToInt32(ViewState["JobID"]);
 
-                // Handle file upload for update
                 if (fuCompanyLogo.HasFile)
                 {
                     fileupld();
@@ -142,7 +136,6 @@ namespace Job_Portal
                 getcon();
                 string query = "UPDATE Jobs SET JobTitle = '" + txtJobTitle.Text.Trim() + "', JobDescription = '" + txtDescription.Text.Trim() + "', Location = '" + txtLocation.Text.Trim() + "', Salary = '" + txtSalary.Text.Trim() + "', SkillsRequired = '" + txtSkills.Text.Trim() + "', ExperienceRequired = '" + txtExperience.Text.Trim() + "', JobType = '" + ddlJobType.SelectedValue + "', Category = '" + ddlCategory.SelectedValue + "', Deadline = '" + txtDeadline.Text.Trim() + "'";
 
-                // Only update logo if new file was uploaded
                 if (fuCompanyLogo.HasFile)
                 {
                     query += ", Company_Logo = '" + Flnm + "'";
@@ -156,7 +149,6 @@ namespace Job_Portal
                 lblMessage.Text = "Job updated successfully!";
                 con.Close();
 
-                // Redirect back to manage jobs page after successful update
                 Response.Redirect("recruiter_manage_jobs.aspx");
             }
         }

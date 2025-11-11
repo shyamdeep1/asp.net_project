@@ -13,7 +13,6 @@ namespace Job_Portal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
             
         }
 
@@ -29,61 +28,48 @@ namespace Job_Portal
             {
                 SqlTransaction transaction = null;
 
-                try
+                con.Open();
+                transaction = con.BeginTransaction();
+
+                SqlCommand checkEmail = new SqlCommand(
+                    "SELECT COUNT(*) FROM Users WHERE Email=@Email", con, transaction);
+                checkEmail.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
+                int exists = (int)checkEmail.ExecuteScalar();
+
+                if (exists > 0)
                 {
-                    con.Open();
-                    transaction = con.BeginTransaction();
-
-                    // Check if email exists in Users
-                    SqlCommand checkEmail = new SqlCommand(
-                        "SELECT COUNT(*) FROM Users WHERE Email=@Email", con, transaction);
-                    checkEmail.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
-                    int exists = (int)checkEmail.ExecuteScalar();
-
-                    if (exists > 0)
-                    {
-                        lblMessage.Text = "Email already registered.";
-                        transaction.Rollback();
-                        return;
-                    }
-
-                    // Insert into Users table
-                    SqlCommand cmdUser = new SqlCommand(
-                        @"INSERT INTO Users (FullName, Email, Password, Role) 
-                          OUTPUT INSERTED.UserID
-                          VALUES (@FullName, @Email, @Password, @Role)", con, transaction);
-
-                    cmdUser.Parameters.AddWithValue("@FullName", txtFullName.Text.Trim());
-                    cmdUser.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
-                    cmdUser.Parameters.AddWithValue("@Password", HashPassword(txtPassword.Text.Trim()));
-                    cmdUser.Parameters.AddWithValue("@Role", "Recruiter");
-
-                    int newUserId = (int)cmdUser.ExecuteScalar();
-
-                    // Insert into Recruiters table
-                    SqlCommand cmdRecruiter = new SqlCommand(
-                        @"INSERT INTO Recruiters (UserID, CompanyName, CompanyAddress) 
-                          VALUES (@UserID, @CompanyName, @CompanyAddress)", con, transaction);
-
-                    cmdRecruiter.Parameters.AddWithValue("@UserID", newUserId);
-                    cmdRecruiter.Parameters.AddWithValue("@CompanyName", txtCompany.Text.Trim());
-                    cmdRecruiter.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
-
-                    cmdRecruiter.ExecuteNonQuery();
-
-                    transaction.Commit();
-
-                    lblMessage.CssClass = "text-success";
-                    lblMessage.Text = "Registration successful! You can now login.";
-                    ClearForm();
+                    lblMessage.Text = "Email already registered.";
+                    transaction.Rollback();
+                    return;
                 }
-                catch (Exception ex)
-                {
-                    if (transaction != null)
-                        transaction.Rollback();
 
-                    lblMessage.Text = "Error: " + ex.Message;
-                }
+                SqlCommand cmdUser = new SqlCommand(
+                    @"INSERT INTO Users (FullName, Email, Password, Role) 
+                      OUTPUT INSERTED.UserID
+                      VALUES (@FullName, @Email, @Password, @Role)", con, transaction);
+
+                cmdUser.Parameters.AddWithValue("@FullName", txtFullName.Text.Trim());
+                cmdUser.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
+                cmdUser.Parameters.AddWithValue("@Password", HashPassword(txtPassword.Text.Trim()));
+                cmdUser.Parameters.AddWithValue("@Role", "Recruiter");
+
+                int newUserId = (int)cmdUser.ExecuteScalar();
+
+                SqlCommand cmdRecruiter = new SqlCommand(
+                    @"INSERT INTO Recruiters (UserID, CompanyName, CompanyAddress) 
+                      VALUES (@UserID, @CompanyName, @CompanyAddress)", con, transaction);
+
+                cmdRecruiter.Parameters.AddWithValue("@UserID", newUserId);
+                cmdRecruiter.Parameters.AddWithValue("@CompanyName", txtCompany.Text.Trim());
+                cmdRecruiter.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
+
+                cmdRecruiter.ExecuteNonQuery();
+
+                transaction.Commit();
+
+                lblMessage.CssClass = "text-success";
+                lblMessage.Text = "Registration successful! You can now login.";
+                ClearForm();
             }
         }
 

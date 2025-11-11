@@ -11,11 +11,9 @@ namespace Job_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Clear all session variables
             Session.Clear();
             Session.Abandon();
             
-            // Clear any authentication cookies
             if (Request.Cookies["UserType"] != null)
             {
                 HttpCookie userTypeCookie = new HttpCookie("UserType");
@@ -37,7 +35,6 @@ namespace Job_Portal
                 Response.Cookies.Add(userNameCookie);
             }
             
-            // Redirect to login page after a short delay
             Response.AddHeader("REFRESH", "2;URL=login.aspx");
         }
     }

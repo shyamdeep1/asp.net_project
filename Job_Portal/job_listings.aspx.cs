@@ -37,8 +37,6 @@ namespace Job_Portal
 
             getcon();
 
-            // Build the query with JOIN to get company information
-            // Use Company_Logo from Jobs table since CompanyLogo might not exist in Recruiters table
             string query = @"SELECT j.JobID, j.JobTitle, j.Location, j.Salary, j.SkillsRequired, j.ExperienceRequired, 
                                j.JobType, j.Category, j.Deadline, j.Status, j.Company_Logo, j.PostedDate, j.JobDescription,
                                r.CompanyName
@@ -46,7 +44,6 @@ namespace Job_Portal
                                INNER JOIN Recruiters r ON j.RecruiterID = r.RecruiterID 
                                WHERE j.Status = 'Active'";
 
-            // Add search filters
             if (!string.IsNullOrEmpty(searchTitle))
             {
                 query += " AND (j.JobTitle LIKE @searchTitle OR j.Category LIKE @searchTitle OR j.SkillsRequired LIKE @searchTitle)";
@@ -62,7 +59,6 @@ namespace Job_Portal
                 query += " AND j.JobType = @searchJobType";
             }
 
-            // Add sorting
             switch (sortBy)
             {
                 case "Latest":
@@ -81,7 +77,6 @@ namespace Job_Portal
 
             cmd = new SqlCommand(query, con);
 
-            // Add parameters to prevent SQL injection
             if (!string.IsNullOrEmpty(searchTitle))
             {
                 cmd.Parameters.AddWithValue("@searchTitle", " + searchTitle + ");
@@ -101,17 +96,14 @@ namespace Job_Portal
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                
                 DataTable dt = ds.Tables[0];
                 foreach (DataRow row in dt.Rows)
                 {
-                    // If CompanyName is null or empty, set a default
                     if (row["CompanyName"] == DBNull.Value || string.IsNullOrEmpty(row["CompanyName"].ToString()))
                     {
                         row["CompanyName"] = "Company Name Not Available";
                     }
 
-                    // Handle Company_Logo
                     if (row["Company_Logo"] == DBNull.Value || string.IsNullOrEmpty(row["Company_Logo"].ToString()))
                     {
                         row["Company_Logo"] = "~/images/job_logo_1.jpg";
@@ -123,7 +115,6 @@ namespace Job_Portal
                 dlJobs.Visible = true;
                 pnlNoJobs.Visible = false;
 
-                // Update results count
                 int totalJobs = ds.Tables[0].Rows.Count;
                 if (!string.IsNullOrEmpty(searchTitle) || !string.IsNullOrEmpty(searchLocation) || !string.IsNullOrEmpty(searchJobType))
                 {
@@ -146,8 +137,6 @@ namespace Job_Portal
 
             con.Close();
         }
-           
-        
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
@@ -189,14 +178,12 @@ namespace Job_Portal
             {
                 string jobId = e.CommandArgument.ToString();
 
-                // Check if user is logged in
                 if (Session["UserID"] == null)
                 {
                     Response.Redirect("login.aspx?returnUrl=" + Server.UrlEncode("job_details.aspx?JobID=" + jobId));
                 }
                 else
                 {
-                    // Redirect to job details page with apply action
                     Response.Redirect("job_details.aspx?JobID=" + jobId + "&action=apply");
                 }
             }
