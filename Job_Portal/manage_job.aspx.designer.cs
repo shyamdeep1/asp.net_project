@@ -87,6 +87,15 @@ namespace Job_Portal
         protected global::System.Web.UI.WebControls.Button btnRefresh;
 
         /// <summary>
+        /// btnExportReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExportReport;
+
+        /// <summary>
         /// txtSearch control.
         /// </summary>
         /// <remarks>
@@ -141,42 +150,6 @@ namespace Job_Portal
         protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
-        /// lblTodayPosted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTodayPosted;
-
-        /// <summary>
-        /// lblTodayApplications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTodayApplications;
-
-        /// <summary>
-        /// lblTodayApproved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTodayApproved;
-
-        /// <summary>
-        /// lblAvgSalary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAvgSalary;
-
-        /// <summary>
         /// lblResultsInfo control.
         /// </summary>
         /// <remarks>
@@ -202,24 +175,6 @@ namespace Job_Portal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvJobs;
-
-        /// <summary>
-        /// pnlRecentActivities control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlRecentActivities;
-
-        /// <summary>
-        /// rptRecentActivities control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptRecentActivities;
 
         /// <summary>
         /// rptTopJobs control.
