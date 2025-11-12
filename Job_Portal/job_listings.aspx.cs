@@ -188,4 +188,4 @@ namespace Job_Portal
             }
         }
     }
-}}
+}
