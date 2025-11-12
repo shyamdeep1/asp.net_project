@@ -61,8 +61,7 @@ namespace Job_Portal
             cmd = new SqlCommand("SELECT COUNT(*) FROM JobApplications", con);
             lblApplications.Text = cmd.ExecuteScalar().ToString();
 
-            cmd = new SqlCommand("SELECT COUNT(*) FROM Categories", con);
-            lblCategories.Text = cmd.ExecuteScalar().ToString();
+           
 
             con.Close();
         }
@@ -205,14 +204,8 @@ namespace Job_Portal
             cmd = new SqlCommand(topCategoriesQuery, con);
             da = new SqlDataAdapter(cmd);
             DataSet dsCategories = new DataSet();
-            da.Fill(dsCategories);
 
-            if (dsCategories.Tables[0].Rows.Count > 0)
-            {
-                gvTopCategories.DataSource = dsCategories.Tables[0];
-                gvTopCategories.DataBind();
-            }
-
+           
             con.Close();
         }
     }

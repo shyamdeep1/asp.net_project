@@ -22,8 +22,14 @@ namespace Job_Portal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getcon();
-            fillgrid();
+            if (Session["UserID"] != null)
+            {
+                fillgrid();
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
+            }
         }
         void getcon()
         {
@@ -33,12 +39,26 @@ namespace Job_Portal
 
         void fillgrid()
         {
+            int userId = Convert.ToInt32(Session["UserID"]);
+            int recruiterId = GetRecruiterId(userId);
             getcon();
-            da = new SqlDataAdapter("select * from Jobs", con);
+            da = new SqlDataAdapter("select * from Jobs where RecruiterID=@RecruiterID ", con);
+            da.SelectCommand.Parameters.AddWithValue("@RecruiterID", recruiterId);
+
             ds = new DataSet();
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+        }
+        int GetRecruiterId(int userId)
+        {
+            getcon();
+            string query = "SELECT RecruiterID FROM Recruiters WHERE UserID = @UserID";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@UserID", userId);
+
+            object result = cmd.ExecuteScalar();
+            return result != null ? Convert.ToInt32(result) : 0;
         }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {

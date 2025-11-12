@@ -35,7 +35,6 @@ namespace Job_Portal
                     LoadJobsGrid();
                     LoadRecentActivities();
                     LoadTopJobs();
-                    LoadTodayStats();
                 }
             }
         }
@@ -61,47 +60,7 @@ namespace Job_Portal
             con.Close();
         }
 
-        private void LoadTodayStats()
-        {
-            getcon();
-
-            cmd = new SqlCommand(@"SELECT COUNT(*) FROM Jobs 
-                                 WHERE CAST(PostedDate AS DATE) = CAST(GETDATE() AS DATE)", con);
-            lblTodayPosted.Text = cmd.ExecuteScalar().ToString();
-
-            cmd = new SqlCommand(@"SELECT COUNT(*) FROM JobApplications 
-                                 WHERE CAST(AppliedDate AS DATE) = CAST(GETDATE() AS DATE)", con);
-            lblTodayApplications.Text = cmd.ExecuteScalar().ToString();
-
-            cmd = new SqlCommand(@"SELECT COUNT(*) FROM Jobs 
-                                 WHERE Status = 'Active' AND CAST(PostedDate AS DATE) = CAST(GETDATE() AS DATE)", con);
-            lblTodayApproved.Text = cmd.ExecuteScalar().ToString();
-
-            cmd = new SqlCommand("SELECT ISNULL(AVG(CAST(Salary AS FLOAT)), 0) FROM Jobs WHERE Salary IS NOT NULL", con);
-            object avgSalary = cmd.ExecuteScalar();
-            if (avgSalary != DBNull.Value)
-            {
-                lblAvgSalary.Text = "$" + string.Format("{0:N0}", Convert.ToDecimal(avgSalary));
-            }
-            else
-            {
-                lblAvgSalary.Text = "$0";
-            }
-
-            cmd = new SqlCommand(@"SELECT 
-                                 CASE 
-                                     WHEN COUNT(*) = 0 THEN 0
-                                     ELSE (COUNT(CASE WHEN Status = 'Active' THEN 1 END) * 100.0 / COUNT(*))
-                                 END
-                                 FROM Jobs 
-                                 WHERE PostedDate >= DATEADD(DAY, -7, GETDATE())", con);
-            object approvalRate = cmd.ExecuteScalar();
-            lblWeeklyApprovalRate.Text = string.Format("{0:F1}%", approvalRate);
-
-            lblAvgTimeToApprove.Text = "2.5 hrs";
-
-            con.Close();
-        }
+        
 
         private void LoadJobsGrid()
         {
@@ -207,11 +166,11 @@ namespace Job_Portal
                            'Job Applied' as Activity,
                            j.JobTitle,
                            r.CompanyName,
-                           ja.AppliedDate as ActivityDate
+                           ja.ApplicationDate as ActivityDate
                            FROM JobApplications ja
                            INNER JOIN Jobs j ON ja.JobID = j.JobID
                            LEFT JOIN Recruiters r ON j.RecruiterID = r.RecruiterID
-                           WHERE ja.AppliedDate >= DATEADD(DAY, -7, GETDATE())
+                           WHERE ja.ApplicationDate >= DATEADD(DAY, -7, GETDATE())
                            ORDER BY ActivityDate DESC";
 
             cmd = new SqlCommand(query, con);
@@ -227,8 +186,7 @@ namespace Job_Portal
                     dtLimited.ImportRow(ds.Tables[0].Rows[i]);
                 }
 
-                rptRecentActivities.DataSource = dtLimited;
-                rptRecentActivities.DataBind();
+              
             }
 
             con.Close();
@@ -284,7 +242,6 @@ namespace Job_Portal
             LoadJobsGrid();
             LoadRecentActivities();
             LoadTopJobs();
-            LoadTodayStats();
         }
 
         protected void btnBulkApprove_Click(object sender, EventArgs e)

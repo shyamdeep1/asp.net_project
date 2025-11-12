@@ -13,5 +13,214 @@ namespace Job_Portal
 
     public partial class jobseeker_profile
     {
+        /// <summary>
+        /// lblInitials control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblInitials;
+
+        /// <summary>
+        /// lblDisplayName control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblDisplayName;
+
+        /// <summary>
+        /// lblDisplayTitle control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblDisplayTitle;
+
+        /// <summary>
+        /// lblDisplayEmail control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblDisplayEmail;
+
+        /// <summary>
+        /// lblMemberSince control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblMemberSince;
+
+        /// <summary>
+        /// lblTotalApplications control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblTotalApplications;
+
+        /// <summary>
+        /// lblProfileViews control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblProfileViews;
+
+        /// <summary>
+        /// pnlMessage control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlMessage;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+
+        /// <summary>
+        /// txtFullName control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtFullName;
+
+        /// <summary>
+        /// rfvFullName control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFullName;
+
+        /// <summary>
+        /// txtEmail control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// txtPhone control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtPhone;
+
+        /// <summary>
+        /// txtProfessionalTitle control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtProfessionalTitle;
+
+        /// <summary>
+        /// txtLocation control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtLocation;
+
+        /// <summary>
+        /// txtLinkedIn control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtLinkedIn;
+
+        /// <summary>
+        /// txtWebsite control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtWebsite;
+
+        /// <summary>
+        /// txtSummary control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtSummary;
+
+        /// <summary>
+        /// btnUpdateProfile control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnUpdateProfile;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+
+        /// <summary>
+        /// txtSkills control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtSkills;
+
+        /// <summary>
+        /// ddlExperience control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.DropDownList ddlExperience;
+
+        /// <summary>
+        /// ddlEducation control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEducation;
+
+        /// <summary>
+        /// ddlSalaryRange control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSalaryRange;
+
+        /// <summary>
+        /// cblJobTypes control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.CheckBoxList cblJobTypes;
+
+        /// <summary>
+        /// btnUpdateSkills control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnUpdateSkills;
+
+        /// <summary>
+        /// txtCurrentPassword control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtCurrentPassword;
+
+        /// <summary>
+        /// txtNewPassword control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+
+        /// <summary>
+        /// txtConfirmPassword control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+
+        /// <summary>
+        /// cvPassword control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.CompareValidator cvPassword;
+
+        /// <summary>
+        /// btnChangePassword control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnChangePassword;
+
+        /// <summary>
+        /// lblStatsApplications control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblStatsApplications;
+
+        /// <summary>
+        /// lblStatsViews control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblStatsViews;
+
+        /// <summary>
+        /// lblStatsShortlisted control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblStatsShortlisted;
+
+        /// <summary>
+        /// lblStatsSaved control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblStatsSaved;
+
+        /// <summary>
+        /// rptRecentActivity control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater rptRecentActivity;
+
+        /// <summary>
+        /// pnlNoActivity control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlNoActivity;
+
+        /// <summary>
+        /// lblProfileCompletion control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblProfileCompletion;
+
+        /// <summary>
+        /// chkBasicInfo control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.CheckBox chkBasicInfo;
+
+        /// <summary>
+        /// chkSkills control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.CheckBox chkSkills;
+
+        /// <summary>
+        /// chkExperience control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.CheckBox chkExperience;
+
+        /// <summary>
+        /// chkEducation control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.CheckBox chkEducation;
     }
 }

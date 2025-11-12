@@ -84,29 +84,22 @@ namespace Job_Portal
 
             if (!string.IsNullOrEmpty(txtSearch.Text))
             {
-                query += " WHERE u.FullName LIKE @Search OR u.Email LIKE @Search";
+                query += " WHERE FullName LIKE @Search OR Email LIKE @Search";
             }
 
             if (!string.IsNullOrEmpty(ddlUserRole.SelectedValue))
             {
                 if (query.Contains("WHERE"))
-                    query += " AND u.Role = @Role";
+                    query += " AND Role = @Role";
                 else
-                    query += " WHERE u.Role = @Role";
+                    query += " WHERE Role = @Role";
             }
 
-            query += " ORDER BY u.UserID DESC";
+            query += " ORDER BY UserID DESC";
 
             cmd = new SqlCommand(query, con);
             
-            if (!string.IsNullOrEmpty(txtSearch.Text))
-            {
-                cmd.Parameters.AddWithValue("@Search", "%" + txtSearch.Text + "%");
-            }
-            if (!string.IsNullOrEmpty(ddlUserRole.SelectedValue))
-            {
-                cmd.Parameters.AddWithValue("@Role", ddlUserRole.SelectedValue);
-            }
+            
 
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
