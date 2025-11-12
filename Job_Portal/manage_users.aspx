@@ -370,16 +370,8 @@
                         <div class="text-center">
                             <asp:Button ID="btnAddUser" runat="server" Text="Add New User" CssClass="action-btn success" 
                                 OnClick="btnAddUser_Click" />
-                            <asp:Button ID="btnBulkActions" runat="server" Text="Bulk Actions" CssClass="action-btn" 
-                                OnClick="btnBulkActions_Click" />
                             <asp:Button ID="btnExportUsers" runat="server" Text="Export Users" CssClass="action-btn" 
                                 OnClick="btnExportUsers_Click" />
-                            <asp:Button ID="btnUserReports" runat="server" Text="User Reports" CssClass="action-btn" 
-                                OnClick="btnUserReports_Click" />
-                            <asp:Button ID="btnSendNotification" runat="server" Text="Send Notification" CssClass="action-btn" 
-                                OnClick="btnSendNotification_Click" />
-                            <asp:Button ID="btnSystemMaintenance" runat="server" Text="System Maintenance" CssClass="action-btn danger" 
-                                OnClick="btnSystemMaintenance_Click" />
                         </div>
                     </div>
                 </div>
@@ -440,18 +432,6 @@
                             </div>
                         </div>
                         
-                        <!-- Bulk Actions Bar -->
-                        <div class="mb-3" style="background: #f8f9fa; padding: 15px; border-radius: 10px;">
-                            <asp:CheckBox ID="chkSelectAll" runat="server" Text=" Select All" CssClass="mr-3" />
-                            <asp:Button ID="btnActivateSelected" runat="server" Text="Activate Selected" 
-                                CssClass="btn btn-sm btn-success mr-2" OnClick="btnActivateSelected_Click" />
-                            <asp:Button ID="btnDeactivateSelected" runat="server" Text="Deactivate Selected" 
-                                CssClass="btn btn-sm btn-warning mr-2" OnClick="btnDeactivateSelected_Click" />
-                            <asp:Button ID="btnDeleteSelected" runat="server" Text="Delete Selected" 
-                                CssClass="btn btn-sm btn-danger mr-2" OnClick="btnDeleteSelected_Click" 
-                                OnClientClick="return confirm('Are you sure you want to delete selected users?');" />
-                        </div>
-
                         <div class="user-table">
                             <asp:GridView ID="gvUsers" runat="server" CssClass="table table-hover mb-0" 
                                 AutoGenerateColumns="false" GridLines="None" AllowPaging="true" PageSize="10"
@@ -672,37 +652,6 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="user-card">
-                        <h4 class="mb-3"><i class="icon-mail mr-2" style="color: #007bff;"></i>Communication Hub</h4>
-                        <div class="mb-3">
-                            <asp:Button ID="btnSendWelcomeEmail" runat="server" Text="Send Welcome Email" 
-                                CssClass="action-btn w-100 mb-2" OnClick="btnSendWelcomeEmail_Click" />
-                            <asp:Button ID="btnSendNewsletter" runat="server" Text="Send Newsletter" 
-                                CssClass="action-btn w-100 mb-2" OnClick="btnSendNewsletter_Click" />
-                            <asp:Button ID="btnSendAlert" runat="server" Text="Send System Alert" 
-                                CssClass="action-btn danger w-100" OnClick="btnSendAlert_Click" />
-                        </div>
-                        <small class="text-muted">
-                            <i class="icon-info mr-1"></i>Last newsletter sent: 3 days ago
-                        </small>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="user-card">
-                        <h4 class="mb-3"><i class="icon-settings mr-2" style="color: #28a745;"></i>System Tools</h4>
-                        <div class="mb-3">
-                            <asp:Button ID="btnCleanupInactive" runat="server" Text="Cleanup Inactive Users" 
-                                CssClass="action-btn w-100 mb-2" OnClick="btnCleanupInactive_Click" />
-                            <asp:Button ID="btnGenerateReport" runat="server" Text="Generate User Report" 
-                                CssClass="action-btn w-100 mb-2" OnClick="btnGenerateReport_Click" />
-                            <asp:Button ID="btnBackupUserData" runat="server" Text="Backup User Data" 
-                                CssClass="action-btn success w-100" OnClick="btnBackupUserData_Click" />
-                        </div>
-                        <small class="text-muted">
-                            <i class="icon-info mr-1"></i>Last backup: Yesterday at 2:00 AM
-                        </small>
-                    </div>
                 </div>
             </div>
         </div>

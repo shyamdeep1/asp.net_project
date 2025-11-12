@@ -25,7 +25,6 @@ namespace Job_Portal
         {
             if (!IsPostBack)
             {
-                // Check if JobID is provided in query string
                 if (Request.QueryString["JobID"] != null)
                 {
                     string jobId = Request.QueryString["JobID"].ToString();
@@ -33,11 +32,9 @@ namespace Job_Portal
                 }
                 else
                 {
-                    // Redirect to job listings if no JobID provided
                     Response.Redirect("job_listings.aspx");
                 }
 
-                // Check user login status
                 CheckUserLogin();
             }
         }
@@ -210,7 +207,7 @@ namespace Job_Portal
             fuResume.SaveAs(Server.MapPath(resumeFileName));
 
             getcon();
-            string query = @"INSERT INTO Applications (JobID, JobSeekerID, FullName, Email, Phone, Resume, Experience, CoverLetter, CurrentSalary, ExpectedSalary, ApplicationDate, Status) 
+            string query = @"INSERT INTO JobApplications (JobID, JobSeekerID, FullName, Email, Phone, Resume, Experience, CoverLetter, CurrentSalary, ExpectedSalary, ApplicationDate, Status) 
                            VALUES (@jobId, @userId, @fullName, @email, @phone, @resume, @experience, @coverLetter, @currentSalary, @expectedSalary, @applicationDate, @status)";
 
             cmd = new SqlCommand(query, con);

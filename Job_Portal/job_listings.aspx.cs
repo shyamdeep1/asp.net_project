@@ -34,7 +34,6 @@ namespace Job_Portal
 
         private void LoadJobListings(string searchTitle = "", string searchLocation = "", string searchJobType = "", string sortBy = "Latest")
         {
-
             getcon();
 
             string query = @"SELECT j.JobID, j.JobTitle, j.Location, j.Salary, j.SkillsRequired, j.ExperienceRequired, 
@@ -79,11 +78,11 @@ namespace Job_Portal
 
             if (!string.IsNullOrEmpty(searchTitle))
             {
-                cmd.Parameters.AddWithValue("@searchTitle", " + searchTitle + ");
+                cmd.Parameters.AddWithValue("@searchTitle", "%" + searchTitle + "%");
             }
             if (!string.IsNullOrEmpty(searchLocation))
             {
-                cmd.Parameters.AddWithValue("@searchLocation", " + searchLocation + ");
+                cmd.Parameters.AddWithValue("@searchLocation", "%" + searchLocation + "%");
             }
             if (!string.IsNullOrEmpty(searchJobType))
             {
@@ -189,4 +188,4 @@ namespace Job_Portal
             }
         }
     }
-}
+}}

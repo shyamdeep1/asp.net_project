@@ -19,8 +19,6 @@ namespace Job_Portal
         }
         string cs = ConfigurationManager.ConnectionStrings["JobPortalConnection"].ConnectionString;
 
-
-
         private string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -31,7 +29,6 @@ namespace Job_Portal
                     sb.Append(b.ToString("x2"));
                 return sb.ToString();
             }
-
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
