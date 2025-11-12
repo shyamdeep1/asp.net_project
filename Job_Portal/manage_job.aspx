@@ -241,6 +241,18 @@
             font-size: 0.9rem;
             font-weight: 500;
         }
+        .auto-style1 {
+            position: relative;
+            width: 100%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            left: 0px;
+            top: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
     </style>
 </asp:Content>
 
@@ -335,8 +347,9 @@
                             <asp:Button ID="btnBulkApprove" runat="server" CssClass="action-btn success" OnClick="btnBulkApprove_Click" Text="Bulk Approve Pending" />
                             <asp:Button ID="btnExpireOld" runat="server" CssClass="action-btn warning" OnClick="btnExpireOld_Click" Text="Expire Old Jobs" />
                             <asp:Button ID="btnRefresh" runat="server" CssClass="action-btn" OnClick="btnRefresh_Click" Text="Refresh Data" />
-                            <a href="#" class="action-btn" onclick="exportJobs()">
-                                <i class="icon-download mr-2"></i>Export Jobs
+                            <asp:Button ID="btnExportReport" runat="server" Text="Print Report" class="action-btn" OnClick="btnExportReport_Click"/>
+                           <%-- <a href="#" class="action-btn" onclick="exportJobs()">
+                                <i class="icon-download mr-2"></i>Export Jobs--%>
                             </a>
                         </div>
                     </div>
@@ -390,29 +403,6 @@
 
             <!-- Today's Statistics -->
             <div class="row mt-4">
-                <div class="col-md-12">
-                    <div class="dashboard-card">
-                        <h3 class="mb-4"><i class="icon-bar-chart mr-2" style="color: #dc3545;"></i>Today's Job Activity</h3>
-                        <div class="quick-stats">
-                            <div class="quick-stat-item">
-                                <div class="quick-stat-number"><asp:Label ID="lblTodayPosted" runat="server" Text="0"></asp:Label></div>
-                                <div class="quick-stat-label">Jobs Posted Today</div>
-                            </div>
-                            <div class="quick-stat-item">
-                                <div class="quick-stat-number"><asp:Label ID="lblTodayApplications" runat="server" Text="0"></asp:Label></div>
-                                <div class="quick-stat-label">Applications Today</div>
-                            </div>
-                            <div class="quick-stat-item">
-                                <div class="quick-stat-number"><asp:Label ID="lblTodayApproved" runat="server" Text="0"></asp:Label></div>
-                                <div class="quick-stat-label">Jobs Approved</div>
-                            </div>
-                            <div class="quick-stat-item">
-                                <div class="quick-stat-number"><asp:Label ID="lblAvgSalary" runat="server" Text="$0"></asp:Label></div>
-                                <div class="quick-stat-label">Average Salary</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Jobs Management Table -->
@@ -514,28 +504,6 @@
 
             <!-- Recent Activity Feed -->
             <div class="row mt-4">
-                <div class="col-md-6">
-                    <div class="dashboard-card">
-                        <h3 class="mb-4"><i class="icon-activity mr-2" style="color: #dc3545;"></i>Recent Job Activities</h3>
-                        <asp:Panel ID="pnlRecentActivities" runat="server">
-                            <asp:Repeater ID="rptRecentActivities" runat="server">
-                                <ItemTemplate>
-                                    <div style="padding: 15px; border-left: 3px solid #dc3545; margin-bottom: 15px; background: #f8f9fa; border-radius: 5px;">
-                                        <div class="d-flex justify-content-between align-items-start">
-                                            <div>
-                                                <strong><%# Eval("Activity") %></strong>
-                                                <p class="mb-1 text-muted"><%# Eval("JobTitle") %> - <%# Eval("CompanyName") %></p>
-                                                <small class="text-muted">
-                                                    <i class="icon-clock mr-1"></i><%# GetTimeDifference(Convert.ToDateTime(Eval("ActivityDate"))) %>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </asp:Panel>
-                    </div>
-                </div>
 
                 <div class="col-md-6">
                     <div class="dashboard-card">
