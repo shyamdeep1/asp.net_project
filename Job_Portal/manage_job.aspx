@@ -273,7 +273,6 @@
                             <li><a href="admin_dashboard.aspx" class="nav-link">Dashboard</a></li>
                             <li><a href="manage_users.aspx" class="nav-link">Manage Users</a></li>
                             <li><a href="manage_job.aspx" class="nav-link active">Manage Jobs</a></li>
-                           
                             <li><a href="logout.aspx" class="nav-link">Logout</a></li>
                         </ul>
                     </nav>
@@ -348,8 +347,6 @@
                             <asp:Button ID="btnExpireOld" runat="server" CssClass="action-btn warning" OnClick="btnExpireOld_Click" Text="Expire Old Jobs" />
                             <asp:Button ID="btnRefresh" runat="server" CssClass="action-btn" OnClick="btnRefresh_Click" Text="Refresh Data" />
                             <asp:Button ID="btnExportReport" runat="server" Text="Print Report" class="action-btn" OnClick="btnExportReport_Click"/>
-                           <%-- <a href="#" class="action-btn" onclick="exportJobs()">
-                                <i class="icon-download mr-2"></i>Export Jobs--%>
                             </a>
                         </div>
                     </div>
