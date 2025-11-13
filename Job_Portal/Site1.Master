@@ -79,6 +79,9 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
             </asp:ContentPlaceHolder>
 
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+            </asp:ContentPlaceHolder>
+
             <footer class="site-footer">
 
                 <a href="#top" class="smoothscroll scroll-top">
