@@ -1,0 +1,8 @@
+Job_Portal/bin/CrystalDecisions*.dll
+Job_Portal/bin/CrystalDecisions*.xml
+ApplicationReport.rpt
+AppliedJobs.rpt
+PrintAllJobs.rpt
+DownloadApplication.aspx
+DownloadApplication.aspx.cs
+DownloadApplication.aspx.designer.cs
