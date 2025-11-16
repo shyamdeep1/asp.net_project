@@ -23,8 +23,35 @@ namespace Job_Portal
         {
             if (fuCompanyLogo.HasFile)
             {
-                Flnm = "~/Logo/" + fuCompanyLogo.FileName;
-                fuCompanyLogo.SaveAs(Server.MapPath(Flnm));
+                try
+                {
+                    // Create Logo directory if it doesn't exist
+                    string logoDirectory = Server.MapPath("~/Logo/");
+                    if (!System.IO.Directory.Exists(logoDirectory))
+                    {
+                        System.IO.Directory.CreateDirectory(logoDirectory);
+                    }
+
+                    // Generate unique filename to avoid conflicts
+                    string fileName = System.IO.Path.GetFileName(fuCompanyLogo.FileName);
+                    string fileExtension = System.IO.Path.GetExtension(fileName);
+                    string uniqueFileName = Guid.NewGuid().ToString() + fileExtension;
+                    
+                    Flnm = "~/Logo/" + uniqueFileName;
+                    string fullPath = Server.MapPath(Flnm);
+                    
+                    fuCompanyLogo.SaveAs(fullPath);
+                }
+                catch (Exception ex)
+                {
+                    // Log error and set default logo
+                    Flnm = "~/images/job_logo_1.jpg";
+                }
+            }
+            else
+            {
+                // Set default logo if no file uploaded
+                Flnm = "~/images/job_logo_1.jpg";
             }
         }
 
