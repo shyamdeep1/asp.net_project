@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-    <!-- HOME -->
+    <!-- HOME SECTION - Navigation removed, now in Master page -->
     <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
         <div class="container">
             <div class="row align-items-center justify-content-center">

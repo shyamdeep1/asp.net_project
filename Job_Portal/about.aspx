@@ -34,11 +34,12 @@
             </div>
         </div>
     </section>
+
+    <!-- ...existing content sections... -->
+
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
-    <footer class="site-footer">
-        <!-- ...existing footer code... -->
-    </footer>
+    <!-- ...existing footer code... -->
 </asp:Content>
 
