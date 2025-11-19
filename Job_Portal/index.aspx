@@ -3,65 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
-    <!-- NAVBAR -->
-
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-        <div class="container">
-            <div class="row align-items-center">
-
-                <!-- Logo -->
-                <div class="col-6 col-xl-2">
-                    <h1 class="mb-0 site-logo">
-                        <a href="index.aspx" class="mb-0">JobBoard</a>
-                    </h1>
-                </div>
-
-                <!-- Navbar Menu -->
-                <div class="col-12 col-md-10 d-none d-xl-block">
-                    <nav class="site-navigation position-relative text-right" role="navigation">
-                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-
-                            <!-- Public Menu -->
-                            <asp:PlaceHolder ID="phPublic" runat="server" Visible="true">
-                                <li><a href="index.aspx" class="nav-link">Home</a></li>
-                                <li><a href="job_listings.aspx" class="nav-link">Job Listings</a></li>
-                                <li><a href="about.aspx" class="nav-link">About</a></li>
-                                <li><a href="contact.aspx" class="nav-link">Contact</a></li>
-                              <%--  <li><a href="login.aspx" class="nav-link">Login</a></li>
-                                <li><a href="register_jobseeker.aspx" class="nav-link">Register</a></li>--%>
-                            </asp:PlaceHolder>
-
-                            <!-- Job Seeker Menu -->
-                            <asp:PlaceHolder ID="phJobSeeker" runat="server" Visible="false">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="jobSeekerDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Job Seeker
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="jobSeekerDropdown">
-                                        <a class="dropdown-item" href="jobseeker_profile.aspx">My Profile</a>
-                                        <a class="dropdown-item" href="jobseeker_applied_jobs.aspx">Applied Jobs</a>
-                                        <a class="dropdown-item" href="logout.aspx">Logout</a>
-                                    </div>
-                                </li>
-                            </asp:PlaceHolder>                           
-
-                            <!-- Admin Menu -->
-                            <asp:PlaceHolder ID="phAdmin" runat="server" Visible="false">
-                                <li><a href="admin_dashboard.aspx" class="nav-link">Dashboard</a></li>
-                                <li><a href="manage_users.aspx" class="nav-link">Manage Users</a></li>
-                                <li><a href="manage_jobs_admin.aspx" class="nav-link">Manage Jobs</a></li>
-                                <li><a href="logout.aspx" class="nav-link">Logout</a></li>
-                            </asp:PlaceHolder>
-
-                        </ul>
-                    </nav>
-                </div>
-
-            </div>
-        </div>
-    </header>
-
-
     <!-- HOME -->
     <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
         <div class="container">
@@ -102,7 +43,7 @@
                                 <h3 style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 15px;">Trending Keywords:</h3>
                                 <ul class="keywords list-unstyled m-0 p-0">
                                     <li><a href="#" style="display: inline-block; padding: 8px 20px; background: rgba(255,255,255,0.2); border-radius: 25px; color: white; text-decoration: none; margin: 5px; transition: all 0.3s ease; font-size: 0.95rem;">UI Designer</a></li>
-                                    <li><a href="#" style="display: inline-block; padding: 8px 20px; background: rgba(255,255,255,0.2); border-radius: 25px; color: white, text-decoration: none; margin: 5px; transition: all 0.3s ease; font-size: 0.95rem;">Python</a></li>
+                                    <li><a href="#" style="display: inline-block; padding: 8px 20px; background: rgba(255,255,255,0.2); border-radius: 25px; color: white; text-decoration: none; margin: 5px; transition: all 0.3s ease; font-size: 0.95rem;">Python</a></li>
                                     <li><a href="#" style="display: inline-block; padding: 8px 20px; background: rgba(255,255,255,0.2); border-radius: 25px; color: white; text-decoration: none; margin: 5px; transition: all 0.3s ease; font-size: 0.95rem;">Developer</a></li>
                                 </ul>
                             </div>
@@ -146,6 +87,8 @@
         </div>
         <a href="#next" class="scroll-button smoothscroll"><span class=" icon-keyboard_arrow_down"></span></a>
     </section>
+
+    <!-- STATISTICS -->
     <section class="py-5 bg-image overlay-primary fixed overlay" id="next" style="background-image: url('images/hero_1.jpg');">
         <div class="container">
             <div class="row mb-5 justify-content-center">
@@ -184,6 +127,8 @@
             </div>
         </div>
     </section>
+
+    <!-- JOB LISTINGS -->
     <section class="site-section" style="padding: 80px 0;">
         <div class="container">
             <div class="row mb-5 justify-content-center">
@@ -302,6 +247,8 @@
             transform: translateY(-2px);
         }
     </style>
+
+    <!-- COMPANIES SECTION -->
     <section class="site-section py-4">
         <div class="container">
             <div class="row align-items-center">
@@ -342,6 +289,8 @@
             </div>
         </div>
     </section>
+    
+    <!-- TESTIMONIALS -->
     <section class="bg-light pt-5 testimony-full">
         <div class="owl-carousel single-carousel">
             <div class="container">
@@ -380,6 +329,8 @@
             </div>
         </div>
     </section>
+    
+    <!-- MOBILE APP SECTION -->
     <section class="pt-5 bg-image overlay-primary fixed overlay" style="background-image: url('images/hero_1.jpg');">
         <div class="container">
             <div class="row">
@@ -399,6 +350,7 @@
         </div>
     </section>
 </asp:Content>
+
 <asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <footer class="site-footer">
         <a href="#top" class="smoothscroll scroll-top"><span class="icon-keyboard_arrow_up"></span></a>
@@ -435,7 +387,10 @@
                 <div class="col-6 col-md-3 mb-4 mb-md-0">
                     <h3>Contact Us</h3>
                     <div class="footer-social">
-                        <a href="#"><span class="icon-facebook"></span></a><a href="#"><span class="icon-twitter"></span></a><a href="#"><span class="icon-instagram"></span></a><a href="#"><span class="icon-linkedin"></span></a>
+                        <a href="#"><span class="icon-facebook"></span></a>
+                        <a href="#"><span class="icon-twitter"></span></a>
+                        <a href="#"><span class="icon-instagram"></span></a>
+                        <a href="#"><span class="icon-linkedin"></span></a>
                     </div>
                 </div>
             </div>
@@ -445,7 +400,7 @@
                         <small>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i>by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </small>
                     </p>
@@ -453,7 +408,7 @@
             </div>
         </div>
     </footer>
-    </div>
+</asp:Content>
 
         <!-- SCRIPTS -->
     <script src="js/jquery.min.js"></script>
@@ -472,5 +427,4 @@
     <script src="js/custom.js"></script>
     </body>
 </html>
-</asp:Content>
 
